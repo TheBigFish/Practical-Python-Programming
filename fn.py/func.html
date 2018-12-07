@@ -101,7 +101,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.1.1" data-path="./">
+        <li class="chapter " data-level="1.1.1" data-path="../itertools/">
+            
+                <a href="../itertools/">
+            
+                    
+                    itertools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="./">
             
                 <a href="./">
             
@@ -115,7 +128,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.1.1.1" data-path="op.html">
+        <li class="chapter " data-level="1.1.2.1" data-path="op.html">
             
                 <a href="op.html">
             
@@ -128,7 +141,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.1.1.2" data-path="func.html">
+        <li class="chapter active" data-level="1.1.2.2" data-path="func.html">
             
                 <a href="func.html">
             
@@ -196,7 +209,44 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <p>func &#x6A21;&#x5757;&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x4E24;&#x4E2A;&#x51FD;&#x6570; F &#x548C; curried</p>
+<h2 id="f">F</h2>
+<p>&#x6838;&#x5FC3;&#x51FD;&#x6570;&#xFF0C;&#x5305;&#x88C5;&#x4E3A;&#x4E00;&#x4E2A;&#x504F;&#x51FD;&#x6570;(partial)&#xFF0C;&#x901A;&#x8FC7;&#x64CD;&#x4F5C;&#x7B26; &gt;&gt; &lt;&lt; &#x5B9E;&#x73B0;&#x94FE;&#x5F0F;&#x64CD;&#x4F5C;</p>
+<p>&#x901A;&#x8FC7; <code>__compose</code> &#x7EC4;&#x5408;&#x8C03;&#x7528;&#xFF0C;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">F</span><span class="hljs-params">(object)</span>:</span>
+    __slots__ = <span class="hljs-string">&quot;f&quot;</span>,
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, f = identity, *args, **kwargs)</span>:</span>
+        self.f = partial(f, *args, **kwargs) <span class="hljs-keyword">if</span> any([args, kwargs]) <span class="hljs-keyword">else</span> f
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__compose</span><span class="hljs-params">(cls, f, g)</span>:</span>
+        <span class="hljs-keyword">return</span> cls(<span class="hljs-keyword">lambda</span> *args, **kwargs: f(g(*args, **kwargs)))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__ensure_callable</span><span class="hljs-params">(self, f)</span>:</span>
+        <span class="hljs-keyword">return</span> self.__class__(*f) <span class="hljs-keyword">if</span> isinstance(f, tuple) <span class="hljs-keyword">else</span> f
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__rshift__</span><span class="hljs-params">(self, g)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Overload &gt;&gt; operator for F instances&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">return</span> self.__class__.__compose(self.__ensure_callable(g), self.f)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__lshift__</span><span class="hljs-params">(self, g)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Overload &lt;&lt; operator for F instances&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">return</span> self.__class__.__compose(self.f, self.__ensure_callable(g))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span>  <span class="hljs-title">__call__</span><span class="hljs-params">(self, *args, **kwargs)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Overload apply operator&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">return</span> self.f(*args, **kwargs)
+<span class="hljs-string">&apos;&apos;&apos;
+<span class="hljs-meta">&gt;&gt;&gt; </span>func = F() &lt;&lt; (_ + 10) &lt;&lt; (_ + 5)
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(func(10))
+25
+<span class="hljs-meta">&gt;&gt;&gt; </span>func = F() &gt;&gt; (filter, _ &lt; 6) &gt;&gt; sum
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(func(range(10)))
+15
+&apos;&apos;&apos;</span>
+</code></pre>
+
                                 
                                 </section>
                             
@@ -235,7 +285,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"func","level":"1.1.1.2","depth":3,"previous":{"title":"op","level":"1.1.1.1","depth":3,"path":"fn.py/op.md","ref":"fn.py/op.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"fn.py/func.md","mtime":"2018-12-04T05:19:02.728Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-04T05:49:42.900Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"func","level":"1.1.2.2","depth":3,"previous":{"title":"op","level":"1.1.2.1","depth":3,"path":"fn.py/op.md","ref":"fn.py/op.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"fn.py/func.md","mtime":"2018-12-07T01:13:12.996Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-07T00:54:18.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -243,6 +293,10 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

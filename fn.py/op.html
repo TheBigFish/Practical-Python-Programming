@@ -103,7 +103,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.1.1" data-path="./">
+        <li class="chapter " data-level="1.1.1" data-path="../itertools/">
+            
+                <a href="../itertools/">
+            
+                    
+                    itertools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="./">
             
                 <a href="./">
             
@@ -117,7 +130,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.1.1.1" data-path="op.html">
+        <li class="chapter active" data-level="1.1.2.1" data-path="op.html">
             
                 <a href="op.html">
             
@@ -130,7 +143,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.1.1.2" data-path="func.html">
+        <li class="chapter " data-level="1.1.2.2" data-path="func.html">
             
                 <a href="func.html">
             
@@ -198,9 +211,142 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="identity">identity</h2>
+                                <ul>
+<li><a href="#identity">identity</a></li>
+<li><a href="#apply">apply</a></li>
+<li><a href="#call">call</a></li>
+<li><a href="#flip">flip</a></li>
+<li><a href="#curring">Curring</a></li>
+<li><a href="#zipwith">zipwith</a></li>
+<li><a href="#foldl">foldl</a></li>
+<li><a href="#foldr">foldr</a></li>
+<li><a href="#unfold">unfold</a></li>
+</ul>
+<h2 id="identity">identity</h2>
 <p>identity &#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4F20;&#x5165;&#x7684;&#x5355;&#x4E2A;&#x53C2;&#x6570;</p>
 <pre><code class="lang-python">identity = <span class="hljs-keyword">lambda</span> arg: arg
+</code></pre>
+<h2 id="apply">apply</h2>
+<p>apply &#x51FD;&#x6570;&#x8C03;&#x7528;&#x4F20;&#x5165;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x51FD;&#x6570;&#xFF0C;&#x540E;&#x7EED;&#x53C2;&#x6570;&#x505A;&#x4E3A;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x5165;,args &#x4E3A; tuple,kwargs &#x4E3A; dict<br><code>args or []</code> &#x5F53; args &#x4E3A; None &#x65F6;&#x4F20;&#x5165;&#x7A7A;&#x5217;&#x8868;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_apply</span><span class="hljs-params">(f, args=None, kwargs=None)</span>:</span>
+    <span class="hljs-keyword">return</span> f(*(args <span class="hljs-keyword">or</span> []), **(kwargs <span class="hljs-keyword">or</span> {}))
+
+apply = apply <span class="hljs-keyword">if</span> version_info[<span class="hljs-number">0</span>] == <span class="hljs-number">2</span> <span class="hljs-keyword">else</span> _apply
+
+<span class="hljs-string">&apos;&apos;&apos;
+<span class="hljs-meta">&gt;&gt;&gt; </span>print apply(operator.add, (2, 3))
+5
+&apos;&apos;&apos;</span>
+</code></pre>
+<h2 id="call">call</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">call</span><span class="hljs-params">(f, *args, **kwargs)</span>:</span>
+    <span class="hljs-keyword">return</span> f(*args, **kwargs)
+
+<span class="hljs-string">&apos;&apos;&apos;
+<span class="hljs-meta">&gt;&gt;&gt; </span>print call(operator.mul, (2, 3))
+6
+</span></code></pre>
+<h2 id="flip">flip</h2>
+<p>flip &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x5C06;&#x539F;&#x6765;&#x7684;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x8C03;&#x540E;&#x8C03;&#x7528;<br>flip(flip(func_a)) is func_a<br>&#x4F7F;&#x7528; setattr &#x7ED9;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x589E;&#x52A0;&#x5C5E;&#x6027;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">flip</span><span class="hljs-params">(f)</span>:</span>
+    flipper = getattr(f, <span class="hljs-string">&quot;__flipback__&quot;</span>, <span class="hljs-keyword">None</span>)
+    <span class="hljs-keyword">if</span> flipper <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">return</span> flipper
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_flipper</span><span class="hljs-params">(a, b)</span>:</span>
+        <span class="hljs-keyword">return</span> f(b, a)
+
+    setattr(_flipper, <span class="hljs-string">&quot;__flipback__&quot;</span>, f)
+    <span class="hljs-keyword">return</span> _flipper
+<span class="hljs-string">&apos;&apos;&apos;
+<span class="hljs-meta">&gt;&gt;&gt; </span>print operator.div(2.0, 5)
+<span class="hljs-meta">&gt;&gt;&gt; </span>print flip(operator.div)(2.0, 5)
+<span class="hljs-meta">&gt;&gt;&gt; </span>print flip(flip(operator.div))(2.0, 5)
+0.4
+2.5
+0.4
+&apos;&apos;&apos;</span>
+</code></pre>
+<h2 id="curring">Curring</h2>
+<p>&#x67EF;&#x91CC;&#x5316;,&#x5C06;&#x63A5;&#x6536;&#x591A;&#x4E2A;&#x51FD;&#x6570;&#x53D8;&#x6210;&#x63A5;&#x6536;&#x5355;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x8FC7;&#x7A0B;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">curry</span><span class="hljs-params">(f, arg, *rest)</span>:</span>
+    <span class="hljs-keyword">return</span> curry(f(arg), *rest) <span class="hljs-keyword">if</span> rest <span class="hljs-keyword">else</span> f(arg)
+
+<span class="hljs-string">&apos;&apos;&apos;
+<span class="hljs-meta">&gt;&gt;&gt; </span>def add(first):
+<span class="hljs-meta">&gt;&gt;&gt; </span>    def add(second):
+<span class="hljs-meta">&gt;&gt;&gt; </span>        return first + second
+<span class="hljs-meta">&gt;&gt;&gt; </span>    return add
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(op.curry(add, 2, 3))
+5
+&apos;&apos;&apos;</span>
+</code></pre>
+<h2 id="zipwith">zipwith</h2>
+<p>&#x8FD4;&#x56DE;&#x51FD;&#x6570;&#xFF0C;&#x5BF9;&#x53C2;&#x6570;&#x5148;&#x505A; zip&#xFF0C;&#x5728;&#x505A; starmap
+f &#x8C03;&#x7528;&#x7684;&#x53C2;&#x6570;&#x4E2A;&#x6570;&#x548C; zip &#x4E4B;&#x540E;&#x751F;&#x6210; list &#x4E2D; tuple &#x4E2A;&#x6570;&#x8981;&#x7B26;&#x5408;</p>
+<p>F &#x51FD;&#x6570;&#x7684; &lt;&lt; &#x53CA; &gt;&gt; &#x90FD;&#x662F;&#x8FD4;&#x56DE;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;<br>(F(starmap, f) &lt;&lt; zip)(iterable) &#x76F8;&#x5F53;&#x4E8E;<br>F(starmap, f)(zip(iterable)) &#x5373;<br>starmap(f, zip(iterable))</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zipwith</span><span class="hljs-params">(f)</span>:</span>
+    <span class="hljs-string">&apos;zipwith(f)(seq1, seq2, ..) -&gt; [f(seq1[0], seq2[0], ..), f(seq1[1], seq2[1], ..), ...]&apos;</span>
+    <span class="hljs-keyword">return</span> F(starmap, f) &lt;&lt; zip
+<span class="hljs-string">&apos;&apos;&apos;
+<span class="hljs-meta">&gt;&gt;&gt; </span>zipper = op.zipwith(operator.add)
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(list(zipper([0,1,2], itertools.repeat(10))))
+[10, 11, 12]
+&apos;&apos;&apos;</span>
+</code></pre>
+<h2 id="foldl">foldl</h2>
+<p>&#x6839;&#x636E;&#x4F20;&#x5165;&#x7684;&#x51FD;&#x6570;&#x53C2;&#x6570; f &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6298;&#x53E0;&#x51FD;&#x6570;<br>&#x5BF9; it &#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4EE5;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#x7684;&#x987A;&#x5E8F;&#x8C03;&#x7528; reduce &#x6298;&#x53E0;<br>init &#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x521D;&#x59CB;&#x53C2;&#x6570;&#x4F20;&#x7ED9; reduce</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foldl</span><span class="hljs-params">(f, init=None)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fold</span><span class="hljs-params">(it)</span>:</span>
+        args = [f, it]
+        <span class="hljs-keyword">if</span> init <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>: args.append(init)
+        <span class="hljs-keyword">return</span> reduce(*args)
+
+    <span class="hljs-keyword">return</span> fold
+<span class="hljs-string">&apos;&apos;&apos;
+<span class="hljs-meta">&gt;&gt;&gt; </span>print foldl(_ + _)([0,1,2,3,4])
+10
+<span class="hljs-meta">&gt;&gt;&gt; </span>print foldl(_ * _, 1)([1,2,3])
+6
+&apos;&apos;&apos;</span>
+</code></pre>
+<h2 id="foldr">foldr</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foldr</span><span class="hljs-params">(f, init=None)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fold</span><span class="hljs-params">(it)</span>:</span>
+        args = [flip(f), reversed(it)]
+        <span class="hljs-keyword">if</span> init <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>: args.append(init)
+        <span class="hljs-keyword">return</span> reduce(*args)
+<span class="hljs-string">&apos;&apos;&apos;
+<span class="hljs-meta">&gt;&gt;&gt; </span>print op.foldr(_ / _)([1.0, 2.0, 4.0])
+2.0
+<span class="hljs-meta">&gt;&gt;&gt; </span>print foldr(call, 10)([lambda s: s**2, lambda k: k+10])
+400
+&apos;&apos;&apos;</span>
+</code></pre>
+<p>&#x53C2;&#x6570;&#x4F20;&#x9012;&#x987A;&#x5E8F;&#x662F;&#x4ECE;&#x53F3;&#x5230;&#x5DE6;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x76F8;&#x5BF9;&#x4F4D;&#x7F6E;&#x4E0D;&#x53D8;</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">print</span> op.foldr(_ / _)([<span class="hljs-number">2.0</span>, <span class="hljs-number">2.0</span>, <span class="hljs-number">4.0</span>])
+<span class="hljs-number">4</span>
+</code></pre>
+<p>&#x5148;&#x8BA1;&#x7B97; 2.0/4.0 = 0.5, &#x7136;&#x540E;&#x8BA1;&#x7B97; 2.0/0.5 = 4.0<br>&#x800C;&#x4E0D;&#x662F; 4.0/2.0 = 2.0, &#x7136;&#x540E;&#x8BA1;&#x7B97; 2.0/2.0 = 1.0</p>
+<p>&#x56E0;&#x4E3A; reduce &#x5C06;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x8BA1;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x4F7F;&#x7528; flip &#x5BF9;&#x8C03;&#x53C2;&#x6570;&#x3002;<br>&#x4ECE;&#x800C;&#x5BF9;&#x4E8E; print foldr(call, 10)([lambda s: s**2, lambda k: k+10]) &#x80FD;&#x4EA7;&#x751F;&#x76F4;&#x89C2;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x800C;&#x5BF9;&#x4E8E; print op.foldr(<em> / </em>)([1.0, 2.0, 4.0]) &#x4EA7;&#x751F;&#x4E0D;&#x76F4;&#x89C2;&#x7684;&#x7ED3;&#x679C;</p>
+<h2 id="unfold">unfold</h2>
+<p>unfolf &#x662F;&#x4E00;&#x4E2A;&#x751F;&#x6210;&#x5668;
+&#x8C03;&#x7528;&#x53C2;&#x6570; f, f &#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;f &#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; (value, cursor)<br>value &#x5728;&#x751F;&#x6210;&#x5668;&#x4E2D;&#x8FD4;&#x56DE;&#xFF0C;cursor &#x5F53;&#x505A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9; f &#x8FDB;&#x884C;&#x4E0B;&#x8F6E;&#x8C03;&#x7528;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unfold</span><span class="hljs-params">(f)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_unfolder</span><span class="hljs-params">(start)</span>:</span>
+        value, curr = <span class="hljs-keyword">None</span>, start
+        <span class="hljs-keyword">while</span> <span class="hljs-number">1</span>:
+            step = f(curr)
+            <span class="hljs-keyword">if</span> step <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>: <span class="hljs-keyword">break</span>
+            value, curr = step
+            <span class="hljs-keyword">yield</span> value
+    <span class="hljs-keyword">return</span> _unfolder
+<span class="hljs-string">&apos;&apos;&apos;
+<span class="hljs-meta">&gt;&gt;&gt; </span>doubler = unfold(lambda x: (x*2, x*2))
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(islice(doubler(10), 0, 10))
+[20, 40, 80, 160, 320, 640, 1280, 2560, 5120, 10240]
+&apos;&apos;&apos;</span>
 </code></pre>
 
                                 
@@ -245,7 +391,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"op","level":"1.1.1.1","depth":3,"next":{"title":"func","level":"1.1.1.2","depth":3,"path":"fn.py/func.md","ref":"fn.py/func.md","articles":[]},"previous":{"title":"fn.py","level":"1.1.1","depth":2,"path":"fn.py/README.md","ref":"fn.py/README.md","articles":[{"title":"op","level":"1.1.1.1","depth":3,"path":"fn.py/op.md","ref":"fn.py/op.md","articles":[]},{"title":"func","level":"1.1.1.2","depth":3,"path":"fn.py/func.md","ref":"fn.py/func.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"fn.py/op.md","mtime":"2018-12-04T05:38:28.657Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-04T05:49:42.900Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"op","level":"1.1.2.1","depth":3,"next":{"title":"func","level":"1.1.2.2","depth":3,"path":"fn.py/func.md","ref":"fn.py/func.md","articles":[]},"previous":{"title":"fn.py","level":"1.1.2","depth":2,"path":"fn.py/README.md","ref":"fn.py/README.md","articles":[{"title":"op","level":"1.1.2.1","depth":3,"path":"fn.py/op.md","ref":"fn.py/op.md","articles":[]},{"title":"func","level":"1.1.2.2","depth":3,"path":"fn.py/func.md","ref":"fn.py/func.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"fn.py/op.md","mtime":"2018-12-05T12:09:28.532Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-07T00:54:18.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -253,6 +399,10 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
