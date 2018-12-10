@@ -1,3 +1,13 @@
+- [identity](#identity)
+- [apply](#apply)
+- [call](#call)
+- [flip](#flip)
+- [Curring](#curring)
+- [zipwith](#zipwith)
+- [foldl](#foldl)
+- [foldr](#foldr)
+- [unfold](#unfold)
+
 ## identity
 
 identity 函数返回传入的单个参数
@@ -85,6 +95,11 @@ def curry(f, arg, *rest):
 返回函数，对参数先做 zip，在做 starmap
 f 调用的参数个数和 zip 之后生成 list 中 tuple 个数要符合
 
+F 函数的 << 及 >> 都是返回可调用对象  
+(F(starmap, f) << zip)(iterable) 相当于  
+F(starmap, f)(zip(iterable)) 即  
+starmap(f, zip(iterable))
+
 ```python
 def zipwith(f):
     'zipwith(f)(seq1, seq2, ..) -> [f(seq1[0], seq2[0], ..), f(seq1[1], seq2[1], ..), ...]'
@@ -93,5 +108,79 @@ def zipwith(f):
 >>> zipper = op.zipwith(operator.add)
 >>> print(list(zipper([0,1,2], itertools.repeat(10))))
 [10, 11, 12]
+'''
+```
+
+## foldl
+
+根据传入的函数参数 f 返回一个折叠函数  
+对 it 传入的参数，以从左到右的顺序调用 reduce 折叠  
+init 参数作为初始参数传给 reduce
+
+```python
+def foldl(f, init=None):
+    def fold(it):
+        args = [f, it]
+        if init is not None: args.append(init)
+        return reduce(*args)
+
+    return fold
+'''
+>>> print foldl(_ + _)([0,1,2,3,4])
+10
+>>> print foldl(_ * _, 1)([1,2,3])
+6
+'''
+```
+
+## foldr
+
+```python
+def foldr(f, init=None):
+    def fold(it):
+        args = [flip(f), reversed(it)]
+        if init is not None: args.append(init)
+        return reduce(*args)
+'''
+>>> print op.foldr(_ / _)([1.0, 2.0, 4.0])
+2.0
+>>> print foldr(call, 10)([lambda s: s**2, lambda k: k+10])
+400
+'''
+```
+
+参数传递顺序是从右到左，但是，对应的两个参数相对位置不变
+
+```python
+>>> print op.foldr(_ / _)([2.0, 2.0, 4.0])
+4
+```
+
+先计算 2.0/4.0 = 0.5, 然后计算 2.0/0.5 = 4.0  
+而不是 4.0/2.0 = 2.0, 然后计算 2.0/2.0 = 1.0
+
+因为 reduce 将每个函数计算的结果作为第一个参数，所以要使用 flip 对调参数。  
+从而对于 print foldr(call, 10)([lambda s: s**2, lambda k: k+10]) 能产生直观的结果，而对于 print op.foldr(_ / _)([1.0, 2.0, 4.0]) 产生不直观的结果
+
+## unfold
+
+unfolf 是一个生成器
+调用参数 f, f 是一个函数，f 接收一个参数，返回一个 (value, cursor)  
+value 在生成器中返回，cursor 当做参数传递给 f 进行下轮调用
+
+```python
+def unfold(f):
+    def _unfolder(start):
+        value, curr = None, start
+        while 1:
+            step = f(curr)
+            if step is None: break
+            value, curr = step
+            yield value
+    return _unfolder
+'''
+>>> doubler = unfold(lambda x: (x*2, x*2))
+>>> list(islice(doubler(10), 0, 10))
+[20, 40, 80, 160, 320, 640, 1280, 2560, 5120, 10240]
 '''
 ```

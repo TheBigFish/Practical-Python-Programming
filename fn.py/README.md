@@ -30,3 +30,18 @@ assert (_ + _)(10, 5) = 15
 assert list(map(_ * 2, range(5))) == [0,2,4,6,8]
 assert list(filter(_ < 10, [9,10,11])) == [9]
 ```
+
+## Scala 风格的惰性求值（Lazy-evaluated）流
+
+```python
+s = Stream() << range(6) << [6,7]
+assert list(s) == [0,1,2,3,4,5,6,7]
+```
+
+## 源码分析
+
+### [func](func.md)
+
+### [op](op.md)
+
+### [stream](stream.md)
