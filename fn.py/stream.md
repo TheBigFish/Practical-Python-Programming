@@ -1,7 +1,37 @@
 ## Stream
 
-```python
+### 示例
 
+```python
+>>> s = Stream() << range(6) << [6,7]
+>>> print s[1]
+>>> print list(s)
+>>> print list(s[1:2])
+1
+[0, 1, 2, 3, 4, 5, 6, 7]
+[1]
+```
+
+`fib = f << [0, 1] << map(add, f, drop(1, f))`  
+这里定义了一个惰性求值序列。  
+map 函数对序列 f 及 drop(1,f) 序列进行加操作，fib 内部暂存了结果序列，随着内部序列的更新，导致 map 无限增长
+
+```python
+from fn import Stream
+from fn.iters import take, drop, map
+from operator import add
+
+f = Stream()
+fib = f << [0, 1] << map(add, f, drop(1, f))
+
+assert list(take(10, fib)) == [0,1,1,2,3,5,8,13,21,34]
+assert fib[20] == 6765
+assert list(fib[30:35]) == [832040,1346269,2178309,3524578,5702887]
+```
+
+### 源码
+
+```python
 class Stream(object):
 
     __slots__ = ("_last", "_collection", "_origin")
@@ -82,21 +112,4 @@ class Stream(object):
             raise TypeError("Invalid argument type")
 
         return self._collection.__getitem__(index)
-
-```
-
-`fib = f << [0, 1] << map(add, f, drop(1, f))` 这里定义了一个惰性求值序列
-map 函数对序列 f 及 drop(1,f) 序列进行加操作，fib 内部暂存了结果序列，随着内部序列的更新，导致 map 无限增长
-
-```python
-from fn import Stream
-from fn.iters import take, drop, map
-from operator import add
-
-f = Stream()
-fib = f << [0, 1] << map(add, f, drop(1, f))
-
-assert list(take(10, fib)) == [0,1,1,2,3,5,8,13,21,34]
-assert fib[20] == 6765
-assert list(fib[30:35]) == [832040,1346269,2178309,3524578,5702887]
 ```
