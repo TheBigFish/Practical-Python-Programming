@@ -156,8 +156,34 @@
             
         </li>
     
+        <li class="chapter " data-level="1.1.2.3" data-path="../fn.py/stream.html">
+            
+                <a href="../fn.py/stream.html">
+            
+                    
+                    stream
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../tablib/">
+            
+                <a href="../tablib/">
+            
+                    
+                    tablib
+            
+                </a>
+            
+
             
         </li>
     
@@ -214,34 +240,11 @@
                                 <h2 id="&#x63CF;&#x8FF0;">&#x63CF;&#x8FF0;</h2>
 <p>&#x7528;&#x4E8E;&#x9AD8;&#x6548;&#x5FAA;&#x73AF;&#x7684;&#x8FED;&#x4EE3;&#x51FD;&#x6570;</p>
 <p>&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x51FD;&#x6570;&#x5177;&#x6709;&#x548C;&quot;lazy functional programming language&quot; Haskell &#x548C; SML &#x76F8;&#x4F3C;&#x7684;&#x7279;&#x70B9;. &#x4ED6;&#x4EEC;&#x90FD;&#x662F;&#x4E3A;&#x4E86;&#x8DD1;&#x5F97;&#x66F4;&#x5FEB;&#x548C;&#x66F4;&#x6709;&#x6548;&#x7684;&#x4F7F;&#x7528;&#x5185;&#x5B58;. &#x4F46;&#x4ED6;&#x4EEC;&#x4E5F;&#x88AB;&#x7275;&#x626F;&#x5728;&#x4E00;&#x8D77;&#x4EE5;&#x8868;&#x793A;&#x66F4;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x8FED;&#x4EE3;&#x7B97;&#x6CD5;.</p>
-<h2 id="&#x5B9E;&#x73B0;">&#x5B9E;&#x73B0;</h2>
-<h3 id="starmap">starmap</h3>
-<p>itertools.starmap(function, iterable)</p>
-<p>&#x5BF9;&#x5E8F;&#x5217; iterable &#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x4F5C;&#x4E3A; function &#x7684;&#x53C2;&#x6570;&#x5217;&#x8868;&#x6267;&#x884C;, &#x8FD4;&#x56DE;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x7684;&#x8FED;&#x4EE3;&#x5668;</p>
-<p>&#x4E0E; map &#x76F8;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x4F1A;&#x5C06; iterable &#x53C2;&#x6570; item &#x4F7F;&#x7528;<code>*</code>&#x540E;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9; function</p>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">starmap</span><span class="hljs-params">(function, iterable)</span>:</span>
-    <span class="hljs-comment"># starmap(pow, [(2,5), (3,2), (10,3)]) --&gt; 32 9 1000</span>
-    <span class="hljs-keyword">for</span> args <span class="hljs-keyword">in</span> iterable:
-        <span class="hljs-keyword">yield</span> function(*args)
-</code></pre>
-<h3 id="islice">islice</h3>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">islice</span><span class="hljs-params">(iterable, *args)</span>:</span>
-
-    s = slice(*args)
-    it = iter(xrange(s.start <span class="hljs-keyword">or</span> <span class="hljs-number">0</span>, s.stop <span class="hljs-keyword">or</span> sys.maxint, s.step <span class="hljs-keyword">or</span> <span class="hljs-number">1</span>))
-    nexti = next(it)
-    <span class="hljs-keyword">for</span> i, element <span class="hljs-keyword">in</span> enumerate(iterable):
-        <span class="hljs-keyword">if</span> i == nexti:
-            <span class="hljs-keyword">yield</span> element
-            nexti = next(it)
-
-<span class="hljs-string">&apos;&apos;&apos;
-<span class="hljs-meta">&gt;&gt;&gt; </span>print list(islice(&apos;ABCDEFG&apos;, 2))
-<span class="hljs-meta">&gt;&gt;&gt; </span>print list(islice(&apos;ABCDEFG&apos;, 2, 4))
-<span class="hljs-meta">&gt;&gt;&gt; </span>print list(islice(&apos;ABCDEFG&apos;, 2, None))
-<span class="hljs-meta">&gt;&gt;&gt; </span>print list(islice(&apos;ABCDEFG&apos;, 0, None, 2))
-&apos;&apos;&apos;</span>
-</code></pre>
+<h2 id="&#x5185;&#x5BB9;">&#x5185;&#x5BB9;</h2>
+<p>&#x5305;&#x62EC;&#x4E09;&#x5927;&#x7C7B;&#xFF1A;</p>
+<h3 id="&#x65E0;&#x9650;&#x8FED;&#x4EE3;&#x5668;"><a href="infinite_iterators.md">&#x65E0;&#x9650;&#x8FED;&#x4EE3;&#x5668;</a></h3>
+<h3 id="&#x77ED;&#x8DEF;&#x8FED;&#x4EE3;&#x5668;">&#x77ED;&#x8DEF;&#x8FED;&#x4EE3;&#x5668;</h3>
+<h3 id="&#x7EC4;&#x5408;&#x751F;&#x6210;&#x5668;">&#x7EC4;&#x5408;&#x751F;&#x6210;&#x5668;</h3>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <ul>
 <li><a href="https://pymotw.com/2/itertools/" target="_blank">pymotw-itertools</a></li>
@@ -290,7 +293,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"itertools","level":"1.1.1","depth":2,"next":{"title":"fn.py","level":"1.1.2","depth":2,"path":"fn.py/README.md","ref":"fn.py/README.md","articles":[{"title":"op","level":"1.1.2.1","depth":3,"path":"fn.py/op.md","ref":"fn.py/op.md","articles":[]},{"title":"func","level":"1.1.2.2","depth":3,"path":"fn.py/func.md","ref":"fn.py/func.md","articles":[]}]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"itertools","level":"1.1.1","depth":2,"path":"itertools/README.md","ref":"itertools/README.md","articles":[]},{"title":"fn.py","level":"1.1.2","depth":2,"path":"fn.py/README.md","ref":"fn.py/README.md","articles":[{"title":"op","level":"1.1.2.1","depth":3,"path":"fn.py/op.md","ref":"fn.py/op.md","articles":[]},{"title":"func","level":"1.1.2.2","depth":3,"path":"fn.py/func.md","ref":"fn.py/func.md","articles":[]}]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"itertools/README.md","mtime":"2018-12-05T12:14:32.759Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-07T00:54:18.841Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"itertools","level":"1.1.1","depth":2,"next":{"title":"fn.py","level":"1.1.2","depth":2,"path":"fn.py/README.md","ref":"fn.py/README.md","articles":[{"title":"op","level":"1.1.2.1","depth":3,"path":"fn.py/op.md","ref":"fn.py/op.md","articles":[]},{"title":"func","level":"1.1.2.2","depth":3,"path":"fn.py/func.md","ref":"fn.py/func.md","articles":[]},{"title":"stream","level":"1.1.2.3","depth":3,"path":"fn.py/stream.md","ref":"fn.py/stream.md","articles":[]}]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"itertools","level":"1.1.1","depth":2,"path":"itertools/README.md","ref":"itertools/README.md","articles":[]},{"title":"fn.py","level":"1.1.2","depth":2,"path":"fn.py/README.md","ref":"fn.py/README.md","articles":[{"title":"op","level":"1.1.2.1","depth":3,"path":"fn.py/op.md","ref":"fn.py/op.md","articles":[]},{"title":"func","level":"1.1.2.2","depth":3,"path":"fn.py/func.md","ref":"fn.py/func.md","articles":[]},{"title":"stream","level":"1.1.2.3","depth":3,"path":"fn.py/stream.md","ref":"fn.py/stream.md","articles":[]}]},{"title":"tablib","level":"1.1.3","depth":2,"path":"tablib/README.md","ref":"tablib/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"itertools/README.md","mtime":"2018-12-10T01:46:08.117Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-11T05:31:32.019Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -298,10 +301,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

@@ -1,0 +1,530 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>tablib · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../fn.py/stream.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../itertools/">
+            
+                <a href="../itertools/">
+            
+                    
+                    itertools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../fn.py/">
+            
+                <a href="../fn.py/">
+            
+                    
+                    fn.py
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.2.1" data-path="../fn.py/op.html">
+            
+                <a href="../fn.py/op.html">
+            
+                    
+                    op
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.2" data-path="../fn.py/func.html">
+            
+                <a href="../fn.py/func.html">
+            
+                    
+                    func
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.3" data-path="../fn.py/stream.html">
+            
+                <a href="../fn.py/stream.html">
+            
+                    
+                    stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    tablib
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >tablib</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <ul>
+<li><a href="#%E7%AE%80%E8%BF%B0">&#x7B80;&#x8FF0;</a></li>
+<li><a href="#row">Row</a></li>
+<li><a href="#dataset">Dataset</a><ul>
+<li><a href="#property-%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8">property &#x51FD;&#x6570;&#x7684;&#x4F7F;&#x7528;</a></li>
+<li><a href="#unicode-%E6%96%B9%E6%B3%95"><code>__unicode__</code> &#x65B9;&#x6CD5;</a></li>
+<li><a href="#registerformats-%E6%96%B9%E6%B3%95"><code>_register_formats</code> &#x65B9;&#x6CD5;</a></li>
+<li><a href="#package%E6%96%B9%E6%B3%95"><code>_package</code>&#x65B9;&#x6CD5;</a></li>
+</ul>
+</li>
+<li><a href="#databook">Databook</a><ul>
+<li><a href="#detectformat-%E6%96%B9%E6%B3%95"><code>detect_format</code> &#x65B9;&#x6CD5;</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x7B80;&#x8FF0;">&#x7B80;&#x8FF0;</h2>
+<p>&#x6E90;&#x7801;&#x5730;&#x5740;&#xFF1A;<br><a href="https://github.com/kennethreitz/tablib.git" target="_blank">Tablib: format-agnostic tabular dataset library</a><br>&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x5408;&#x5E93;
+&#x5305;&#x542B;&#x4E86;&#x591A;&#x79CD;&#x6570;&#x636E;&#x683C;&#x5F0F;&#x7684;&#x64CD;&#x4F5C;&#x5E93;<br>&#x6574;&#x4E2A;&#x6E90;&#x7801;&#x7B80;&#x6D01;&#xFF0C;&#x76F4;&#x63A5;&#xFF0C;&#x6E05;&#x6670;</p>
+<h2 id="row">Row</h2>
+<p><code>class Row(object)</code><br>&#x6570;&#x636E;&#x884C;&#x7C7B;<br>&#x4E00;&#x76EE;&#x4E86;&#x7136;&#x7684;&#x5B9E;&#x73B0;</p>
+<p>&#x6CE8;&#x610F;&#x4F7F;&#x7528; set &#x68C0;&#x6D4B;&#x5BB9;&#x5668;&#x4E2D;&#x662F;&#x5426;&#x542B;&#x6709;&#x67D0;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x7528;&#x6CD5;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">has_tag</span><span class="hljs-params">(self, tag)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Returns true if current row contains tag.&quot;&quot;&quot;</span>
+
+    <span class="hljs-keyword">if</span> tag == <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+    <span class="hljs-keyword">elif</span> isinstance(tag, str):
+        <span class="hljs-keyword">return</span> (tag <span class="hljs-keyword">in</span> self.tags)
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> bool(len(set(tag) &amp; set(self.tags)))
+</code></pre>
+<h2 id="dataset">Dataset</h2>
+<p><code>class Dataset(object)</code><br>Row &#x7684;&#x96C6;&#x5408;
+&#x540C;&#x6837;&#x7B80;&#x5355;&#x660E;&#x4E86;&#x7684;&#x5B9E;&#x73B0;</p>
+<h3 id="property-&#x51FD;&#x6570;&#x7684;&#x4F7F;&#x7528;">property &#x51FD;&#x6570;&#x7684;&#x4F7F;&#x7528;</h3>
+<ul>
+<li>&#x539F;&#x578B;
+property(fget=None, fset=None, fdel=None, doc=None)</li>
+<li><p>Property &#x5BF9;&#x8C61;&#x6709;&#x4E09;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;getter(), setter()&#x548C; delete()&#xFF0C;&#x7528;&#x6765;&#x5728;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x540E;&#x8BBE;&#x7F6E; fget&#xFF0C;fset &#x548C; fdel</p>
+<pre><code class="lang-python">item = property(fget, fset)
+
+<span class="hljs-comment">#&#x7B49;&#x540C;&#x4E8E;</span>
+
+<span class="hljs-comment"># make empty property</span>
+item = property()
+<span class="hljs-comment"># assign fget</span>
+item = item.getter(fget)
+<span class="hljs-comment"># assign fset</span>
+item = item.setter(fset)
+</code></pre>
+</li>
+</ul>
+<p>&#x6E90;&#x7801;&#x4E2D;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_get_dict</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">return</span> self._package()
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_set_dict</span><span class="hljs-params">(self, pickle)</span>:</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(pickle):
+        <span class="hljs-keyword">return</span>
+    ...
+
+dict = property(_get_dict, _set_dict)
+</code></pre>
+<p>&#x7B49;&#x540C;&#x4E8E;</p>
+<pre><code class="lang-python">dict = property()
+<span class="hljs-comment"># assign fget</span>
+dict = dict.getter(_get_dict)
+<span class="hljs-comment"># assign fset</span>
+dict = dict.setter(_set_dict)
+</code></pre>
+<p>&#x4E0E;&#x4F7F;&#x7528; @property &#x88C5;&#x9970; &#x76F8;&#x4E92;&#x7B49;&#x4EF7;</p>
+<pre><code class="lang-python"><span class="hljs-meta">@property</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dict</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">return</span> self._package()
+<span class="hljs-comment"># dict = property(dict, None ...)</span>
+
+<span class="hljs-meta">@property.setter</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dict</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(pickle):
+        <span class="hljs-keyword">return</span>
+    ...
+<span class="hljs-comment"># dict = property.setter(dict)</span>
+</code></pre>
+<h3 id="unicode-&#x65B9;&#x6CD5;"><code>__unicode__</code> &#x65B9;&#x6CD5;</h3>
+<p>&#x6F02;&#x4EAE;&#x7684;&#x5217;&#x8868;&#x63A8;&#x5BFC;&#xFF0C;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x7684;&#x5999;&#x7528;</p>
+<pre><code class="lang-python">
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__unicode__</span><span class="hljs-params">(self)</span>:</span>
+    result = []
+
+    <span class="hljs-comment"># Add unicode representation of headers.</span>
+    <span class="hljs-keyword">if</span> self.__headers:
+        result.append([unicode(h) <span class="hljs-keyword">for</span> h <span class="hljs-keyword">in</span> self.__headers])
+
+    <span class="hljs-comment"># Add unicode representation of rows.</span>
+    result.extend(list(map(unicode, row)) <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> self._data)
+
+    lens = [list(map(len, row)) <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> result]
+    field_lens = list(map(max, zip(*lens)))
+
+    <span class="hljs-comment"># delimiter between header and data</span>
+    <span class="hljs-keyword">if</span> self.__headers:
+        result.insert(<span class="hljs-number">1</span>, [<span class="hljs-string">&apos;-&apos;</span> * length <span class="hljs-keyword">for</span> length <span class="hljs-keyword">in</span> field_lens])
+
+
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;\n&apos;</span>.join(format_string.format(*row) <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> result)
+</code></pre>
+<h3 id="registerformats-&#x65B9;&#x6CD5;"><code>_register_formats</code> &#x65B9;&#x6CD5;</h3>
+<p>&#x52A8;&#x6001;&#x6CE8;&#x518C;</p>
+<pre><code class="lang-python"><span class="hljs-meta">@classmethod</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_register_formats</span><span class="hljs-params">(cls)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Adds format properties.&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">for</span> fmt <span class="hljs-keyword">in</span> formats.available:
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">try</span>:
+                <span class="hljs-comment"># &#x7ED9;&#x7C7B;&#x6CE8;&#x518C; &#x5C5E;&#x6027; fmt.title</span>
+                setattr(cls, fmt.title, property(fmt.export_set, fmt.import_set))
+                <span class="hljs-comment"># &#x7ED9;&#x7C7B;&#x6CE8;&#x518C; &#x5BFC;&#x5165;&#x548C;&#x5BFC;&#x51FA;&#x65B9;&#x6CD5; get_* set_*</span>
+                setattr(cls, <span class="hljs-string">&apos;get_%s&apos;</span> % fmt.title, fmt.export_set)
+                setattr(cls, <span class="hljs-string">&apos;set_%s&apos;</span> % fmt.title, fmt.import_set)
+                cls._formats[fmt.title] = (fmt.export_set, fmt.import_set)
+            <span class="hljs-keyword">except</span> AttributeError:
+                setattr(cls, fmt.title, property(fmt.export_set))
+                setattr(cls, <span class="hljs-string">&apos;get_%s&apos;</span> % fmt.title, fmt.export_set)
+                cls._formats[fmt.title] = (fmt.export_set, <span class="hljs-keyword">None</span>)
+
+        <span class="hljs-keyword">except</span> AttributeError:
+
+            cls._formats[fmt.title] = (<span class="hljs-keyword">None</span>, <span class="hljs-keyword">None</span>)
+</code></pre>
+<p><code>setattr(cls, fmt.title, property(fmt.export_set, fmt.import_set))</code> &#x8BBE;&#x7F6E; property, &#x6BD4;&#x5982; json, &#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8C03;&#x7528;
+dataset.json, &#x4F1A;&#x89E6;&#x53D1; <code>_json.export_set</code> &#x7684;&#x8C03;&#x7528;</p>
+<pre><code class="lang-python">headers = (<span class="hljs-string">&apos;first_name&apos;</span>, <span class="hljs-string">&apos;last_name&apos;</span>, <span class="hljs-string">&apos;gpa&apos;</span>)
+john = (<span class="hljs-string">&apos;John&apos;</span>, <span class="hljs-string">&apos;Adams&apos;</span>, <span class="hljs-number">90</span>)
+george = (<span class="hljs-string">&apos;George&apos;</span>, <span class="hljs-string">&apos;Washington&apos;</span>, <span class="hljs-number">67</span>)
+tom = (<span class="hljs-string">&apos;Thomas&apos;</span>, <span class="hljs-string">&apos;Jefferson&apos;</span>, <span class="hljs-number">50</span>)
+
+founders = tablib.Dataset(headers=headers, title=<span class="hljs-string">&apos;Founders&apos;</span>)
+founders.append(john)
+founders.append(george)
+founders.append(tom)
+
+<span class="hljs-keyword">print</span> founders.json
+<span class="hljs-keyword">print</span> founders.get_json()
+
+
+[{<span class="hljs-string">&quot;first_name&quot;</span>: <span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-string">&quot;last_name&quot;</span>: <span class="hljs-string">&quot;Adams&quot;</span>, <span class="hljs-string">&quot;gpa&quot;</span>: <span class="hljs-number">90</span>}, {<span class="hljs-string">&quot;first_name&quot;</span>: <span class="hljs-string">&quot;George&quot;</span>, <span class="hljs-string">&quot;last_name&quot;</span>: <span class="hljs-string">&quot;Washington&quot;</span>, <span class="hljs-string">&quot;gpa&quot;</span>: <span class="hljs-number">67</span>}, {<span class="hljs-string">&quot;first_name&quot;</span>: <span class="hljs-string">&quot;Thomas&quot;</span>, <span class="hljs-string">&quot;last_name&quot;</span>: <span class="hljs-string">&quot;Jefferson&quot;</span>, <span class="hljs-string">&quot;gpa&quot;</span>: <span class="hljs-number">50</span>}]
+</code></pre>
+<h3 id="package&#x65B9;&#x6CD5;"><code>_package</code>&#x65B9;&#x6CD5;</h3>
+<ul>
+<li>dict &#x53EF;&#x4EE5;&#x4F5C;&#x7528;&#x4E8E; list<pre><code class="lang-python">ab = [[<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;2&quot;</span>]]
+cd = dict(ab)
+<span class="hljs-keyword">print</span> cd
+<span class="hljs-comment"># {&apos;a&apos;: 1, &apos;b&apos;: &apos;2&apos;}</span>
+</code></pre>
+</li>
+<li>OrderedDict &#x7684;&#x4F7F;&#x7528;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_package</span><span class="hljs-params">(self, dicts=True, ordered=True)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Packages Dataset into lists of dictionaries for transmission.&quot;&quot;&quot;</span>
+    <span class="hljs-comment"># <span class="hljs-doctag">TODO:</span> Dicts default to false?</span>
+
+    _data = list(self._data)
+
+    <span class="hljs-keyword">if</span> ordered:
+        dict_pack = OrderedDict
+    <span class="hljs-keyword">else</span>:
+        dict_pack = dict
+
+    <span class="hljs-comment"># Execute formatters</span>
+    <span class="hljs-keyword">if</span> self._formatters:
+        <span class="hljs-keyword">for</span> row_i, row <span class="hljs-keyword">in</span> enumerate(_data):
+            <span class="hljs-keyword">for</span> col, callback <span class="hljs-keyword">in</span> self._formatters:
+                <span class="hljs-keyword">try</span>:
+                    <span class="hljs-keyword">if</span> col <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+                        <span class="hljs-keyword">for</span> j, c <span class="hljs-keyword">in</span> enumerate(row):
+                            _data[row_i][j] = callback(c)
+                    <span class="hljs-keyword">else</span>:
+                        _data[row_i][col] = callback(row[col])
+                <span class="hljs-keyword">except</span> IndexError:
+                    <span class="hljs-keyword">raise</span> InvalidDatasetIndex
+
+
+    <span class="hljs-keyword">if</span> self.headers:
+        <span class="hljs-keyword">if</span> dicts:
+            data = [dict_pack(list(zip(self.headers, data_row))) <span class="hljs-keyword">for</span> data_row <span class="hljs-keyword">in</span> _data]
+        <span class="hljs-keyword">else</span>:
+            data = [list(self.headers)] + list(_data)
+    <span class="hljs-keyword">else</span>:
+        data = [list(row) <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> _data]
+
+    <span class="hljs-keyword">return</span> data
+</code></pre>
+<h2 id="databook">Databook</h2>
+<p><code>class Databook(object)</code><br>Dataset &#x7684;&#x96C6;&#x5408;</p>
+<h3 id="detectformat-&#x65B9;&#x6CD5;"><code>detect_format</code> &#x65B9;&#x6CD5;</h3>
+<p>&#x9010;&#x4E2A;&#x5C1D;&#x8BD5;&#xFF0C;&#x76F4;&#x5230;&#x89E3;&#x7801;&#x6B63;&#x786E;&#x6216;&#x8005;&#x5168;&#x90E8;&#x5931;&#x8D25;</p>
+<pre><code class="lang-python">
+<span class="hljs-comment"># detect in format, such as json</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">detect</span><span class="hljs-params">(stream)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Returns True if given stream is valid JSON.&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">try</span>:
+        json.loads(stream)
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+    <span class="hljs-keyword">except</span> ValueError:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">detect_format</span><span class="hljs-params">(stream)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Return format name of given stream.&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">for</span> fmt <span class="hljs-keyword">in</span> formats.available:
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">if</span> fmt.detect(stream):
+                <span class="hljs-keyword">return</span> fmt.titless
+        <span class="hljs-keyword">except</span> AttributeError:
+            <span class="hljs-keyword">pass</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../fn.py/stream.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: stream">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"tablib","level":"1.1.3","depth":2,"previous":{"title":"stream","level":"1.1.2.3","depth":3,"path":"fn.py/stream.md","ref":"fn.py/stream.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tablib/README.md","mtime":"2018-12-11T05:31:28.039Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-11T05:31:32.019Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

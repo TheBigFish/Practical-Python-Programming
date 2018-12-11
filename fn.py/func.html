@@ -57,6 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="stream.html" />
+    
     
     <link rel="prev" href="op.html" />
     
@@ -154,8 +156,34 @@
             
         </li>
     
+        <li class="chapter " data-level="1.1.2.3" data-path="stream.html">
+            
+                <a href="stream.html">
+            
+                    
+                    stream
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../tablib/">
+            
+                <a href="../tablib/">
+            
+                    
+                    tablib
+            
+                </a>
+            
+
             
         </li>
     
@@ -212,7 +240,6 @@
                                 <p>func &#x6A21;&#x5757;&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x4E24;&#x4E2A;&#x51FD;&#x6570; F &#x548C; curried</p>
 <h2 id="f">F</h2>
 <p>&#x6838;&#x5FC3;&#x51FD;&#x6570;&#xFF0C;&#x5305;&#x88C5;&#x4E3A;&#x4E00;&#x4E2A;&#x504F;&#x51FD;&#x6570;(partial)&#xFF0C;&#x901A;&#x8FC7;&#x64CD;&#x4F5C;&#x7B26; &gt;&gt; &lt;&lt; &#x5B9E;&#x73B0;&#x94FE;&#x5F0F;&#x64CD;&#x4F5C;</p>
-<p>&#x901A;&#x8FC7; <code>__compose</code> &#x7EC4;&#x5408;&#x8C03;&#x7528;&#xFF0C;</p>
 <pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">F</span><span class="hljs-params">(object)</span>:</span>
     __slots__ = <span class="hljs-string">&quot;f&quot;</span>,
 
@@ -246,6 +273,56 @@
 15
 &apos;&apos;&apos;</span>
 </code></pre>
+<p>&#x901A;&#x8FC7; <code>__compose</code> &#x7EC4;&#x5408;&#x8C03;&#x7528;&#xFF0C;&#x5C06; &gt;&gt; &lt;&lt; &#x64CD;&#x4F5C;&#x7B26;&#x5DE6;&#x53F3;&#x5BF9;&#x8C61;&#x91CD;&#x65B0;&#x751F;&#x6210; F &#x5BF9;&#x8C61;<br><code>__ensure_callable</code> &#x5904;&#x7406; tuple &#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x6BD4;&#x5982;</p>
+<pre><code class="lang-python">func = F(operator.add, <span class="hljs-number">3</span>) &gt;&gt; (operator.mul, <span class="hljs-number">5</span>)
+<span class="hljs-keyword">print</span> func(<span class="hljs-number">2</span>)
+
+<span class="hljs-comment"># 25</span>
+</code></pre>
+<h2 id="curried">curried</h2>
+<p>&#x67EF;&#x91CC;&#x5316;&#x88C5;&#x9970;&#x5668;<br>&#x88AB;&#x88C5;&#x9970;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5148;&#x5C55;&#x5F00; partial &#x67E5;&#x770B;&#x5DF2;&#x7ECF;&#x7ED1;&#x5B9A;&#x7684;&#x53C2;&#x6570;&#x4E2A;&#x6570;&#x3002;<br>&#x5982;&#x679C;&#x548C;&#x51FD;&#x6570;&#x521D;&#x59CB;&#x5B9A;&#x4E49;&#x65F6;&#x4E2A;&#x6570;&#x4E00;&#x81F4;&#xFF0C;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x5E76;&#x8FD4;&#x56DE;&#x503C;&#xFF1B;<br>&#x5982;&#x679C;&#x5C11;&#x4E8E;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x65F6;&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x4F7F;&#x7528; partial &#x5305;&#x88C5;&#x540E;&#x8FD4;&#x56DE; curried&#x3002;</p>
+<pre><code class="lang-python">
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">curried</span><span class="hljs-params">(func)</span>:</span>
+<span class="hljs-meta">    @wraps(func)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_curried</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        f = func
+        count = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">while</span> isinstance(f, partial):
+            <span class="hljs-keyword">if</span> f.args:
+                count += len(f.args)
+            <span class="hljs-comment"># parial &#x4FDD;&#x5B58;&#x6709; func &#x5C5E;&#x6027;</span>
+            f = f.func
+        <span class="hljs-comment"># while &#x7ED3;&#x675F;&#xFF0C;f &#x53D8;&#x4E3A;&#x6700;&#x539F;&#x59CB;&#x672A;&#x88AB;&#x88C5;&#x9970;&#x7684;&#x51FD;&#x6570;</span>
+        <span class="hljs-comment"># getargspec &#x83B7;&#x53D6;&#x6700;&#x521D;&#x7684;&#x88AB;&#x88C5;&#x9970;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x4FE1;&#x606F;</span>
+        spec = getargspec(f)
+
+        <span class="hljs-keyword">if</span> count == len(spec.args) - len(args):
+            <span class="hljs-keyword">return</span> func(*args, **kwargs)
+
+        <span class="hljs-keyword">return</span> curried(partial(func, *args, **kwargs))
+    <span class="hljs-keyword">return</span> _curried
+<span class="hljs-string">&quot;&quot;&quot;
+<span class="hljs-meta">&gt;&gt;&gt; </span>@curried
+<span class="hljs-meta">... </span>def sum5(a, b, c, d, e):
+<span class="hljs-meta">... </span>    return a + b + c + d + e
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>sum5(1)(2)(3)(4)(5)
+15
+<span class="hljs-meta">&gt;&gt;&gt; </span>sum5(1, 2, 3)(4, 5)
+15
+&quot;&quot;&quot;</span>
+</code></pre>
+<p>curried &#x5B9E;&#x8D28;&#x662F;&#x5BF9; partial &#x5D4C;&#x5957;&#x8C03;&#x7528;&#x7684;&#x4E00;&#x4E2A;&#x5305;&#x88C5;:</p>
+<pre><code class="lang-python"><span class="hljs-meta">@curried</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum3</span><span class="hljs-params">(a, b, c)</span>:</span>
+    <span class="hljs-keyword">return</span> a + b + c
+<span class="hljs-string">&apos;&apos;&apos;
+<span class="hljs-meta">&gt;&gt;&gt; </span>print sum3(1)(2)(3)
+<span class="hljs-meta">&gt;&gt;&gt; </span>print partial(partial(sum3, 1), 2)(3)
+6
+6
+&apos;&apos;&apos;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -273,10 +350,14 @@
 
             
                 
-                <a href="op.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: op">
+                <a href="op.html" class="navigation navigation-prev " aria-label="Previous page: op">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="stream.html" class="navigation navigation-next " aria-label="Next page: stream">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -285,7 +366,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"func","level":"1.1.2.2","depth":3,"previous":{"title":"op","level":"1.1.2.1","depth":3,"path":"fn.py/op.md","ref":"fn.py/op.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"fn.py/func.md","mtime":"2018-12-07T01:13:12.996Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-07T00:54:18.841Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"func","level":"1.1.2.2","depth":3,"next":{"title":"stream","level":"1.1.2.3","depth":3,"path":"fn.py/stream.md","ref":"fn.py/stream.md","articles":[]},"previous":{"title":"op","level":"1.1.2.1","depth":3,"path":"fn.py/op.md","ref":"fn.py/op.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"fn.py/func.md","mtime":"2018-12-07T02:01:53.665Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-11T05:31:32.019Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -293,10 +374,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
