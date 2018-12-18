@@ -21,6 +21,26 @@ def chain(*iterables):
 ['a', 'b', 'c', 0, 1, 2, 3, 4]
 ```
 
+### ifilterfalse
+
+`itertools.ifilterfalse(predicate, iterable)`
+创建一个迭代器，仅生成 iterable 中 predicate(item)为 False 的项  
+如果 predicate 为 None，则返回 iterable 中所有计算为 False 的项  
+对函数 func 执行返回假的元素的迭代器
+
+```python
+def ifilterfalse(predicate, iterable):
+
+    if predicate is None:
+        predicate = bool
+    for x in iterable:
+        if not predicate(x):
+            yield x
+
+>>>  ifilterfalse(lambda x: x%2, range(10))
+0 2 4 6 8
+```
+
 ### imap
 
 `itertools.imap(function, *iterables)`
