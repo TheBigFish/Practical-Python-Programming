@@ -378,17 +378,19 @@
         <span class="hljs-keyword">print</span> <span class="hljs-string">&quot;listening on port&quot;</span>, self.port
 
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_accept</span><span class="hljs-params">(self)</span>:</span>
-        channel, _ = self.accept()
+        channel, addr = self.accept()
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&quot;client connect addr {}&quot;</span>.format(addr)
         TimeChannel(channel)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_connect</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&quot;connected&quot;</span>
 
 
 server = TimeServer(<span class="hljs-number">8037</span>)
-<span class="hljs-keyword">print</span> server
 asyncore.loop()
 </code></pre>
 <p>simple client</p>
-<pre><code class="lang-python">
-<span class="hljs-keyword">import</span> asyncore, socket
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> asyncore, socket
 
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Client</span><span class="hljs-params">(asyncore.dispatcher_with_send)</span>:</span>
@@ -397,6 +399,9 @@ asyncore.loop()
         self.create_socket(socket.AF_INET, socket.SOCK_STREAM)
         self.connect((host, port))
         self.out_buffer = message
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_connect</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&quot;connected&quot;</span>
 
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_close</span><span class="hljs-params">(self)</span>:</span>
         self.close()
@@ -453,7 +458,7 @@ asyncore.loop()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"example-timer","level":"1.1.2.1","depth":3,"next":{"title":"example-echo","level":"1.1.2.2","depth":3,"path":"asyncore/echo.md","ref":"asyncore/echo.md","articles":[]},"previous":{"title":"asyncore","level":"1.1.2","depth":2,"path":"asyncore/README.md","ref":"asyncore/README.md","articles":[{"title":"example-timer","level":"1.1.2.1","depth":3,"path":"asyncore/timer.md","ref":"asyncore/timer.md","articles":[]},{"title":"example-echo","level":"1.1.2.2","depth":3,"path":"asyncore/echo.md","ref":"asyncore/echo.md","articles":[]},{"title":"source","level":"1.1.2.3","depth":3,"path":"asyncore/asyncore.md","ref":"asyncore/asyncore.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"asyncore/timer.md","mtime":"2018-12-18T06:38:37.058Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-18T07:20:03.549Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"example-timer","level":"1.1.2.1","depth":3,"next":{"title":"example-echo","level":"1.1.2.2","depth":3,"path":"asyncore/echo.md","ref":"asyncore/echo.md","articles":[]},"previous":{"title":"asyncore","level":"1.1.2","depth":2,"path":"asyncore/README.md","ref":"asyncore/README.md","articles":[{"title":"example-timer","level":"1.1.2.1","depth":3,"path":"asyncore/timer.md","ref":"asyncore/timer.md","articles":[]},{"title":"example-echo","level":"1.1.2.2","depth":3,"path":"asyncore/echo.md","ref":"asyncore/echo.md","articles":[]},{"title":"source","level":"1.1.2.3","depth":3,"path":"asyncore/asyncore.md","ref":"asyncore/asyncore.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"asyncore/timer.md","mtime":"2018-12-18T07:54:21.270Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-18T09:36:26.909Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

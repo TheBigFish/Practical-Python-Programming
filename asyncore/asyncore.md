@@ -96,6 +96,8 @@ def readwrite(obj, flags):
 
 ## poll
 
+- 服务端监听进程不加入 writable 集合
+
 ```python
 def poll(timeout=0.0, map=None):
     if map is None:
@@ -183,6 +185,8 @@ poll3 = poll2                           # Alias for backward compatibility
 
 循环函数
 
+dispatcher.close 会从 map 中删除 socket,map 为空时，loop 退出
+
 ```python
 def loop(timeout=30.0, use_poll=False, map=None, count=None):
     if map is None:
@@ -206,15 +210,19 @@ def loop(timeout=30.0, use_poll=False, map=None, count=None):
 
 ## dispatcher
 
-核心类
+核心类  
+包装 socket 并对外提供 hooks 用于处理 connecting,reading,writing 等事件，这些事件在 loop 中调用
 
 ```python
 
 class dispatcher:
 
     debug = False
+    # 已连接，客户端/服务端 socket
     connected = False
+    # 仅监听socket的 accepting 为 true
     accepting = False
+    # 连接中，客户端 socket
     connecting = False
     closing = False
     addr = None
@@ -228,6 +236,7 @@ class dispatcher:
 
         self._fileno = None
 
+        # 传入socket,将之纳入map监听
         if sock:
             # Set to nonblocking just to make sure for cases where we
             # get a socket from a blocking source.
@@ -267,6 +276,7 @@ class dispatcher:
 
     __str__ = __repr__
 
+    ## 将自身（socket 连接）加入 map，loop 中监听
     def add_channel(self, map=None):
         #self.log_info('adding channel %s' % self)
         if map is None:
@@ -282,12 +292,14 @@ class dispatcher:
             del map[fd]
         self._fileno = None
 
+    # 注册一个 socket
     def create_socket(self, family, type):
         self.family_and_type = family, type
         sock = socket.socket(family, type)
         sock.setblocking(0)
         self.set_socket(sock)
 
+    # 设置基本信息并加入map
     def set_socket(self, sock, map=None):
         self.socket = sock
 ##        self.__dict__['socket'] = sock
@@ -345,6 +357,7 @@ class dispatcher:
         else:
             raise socket.error(err, errorcode[err])
 
+    # 服务端接收
     def accept(self):
         # XXX can return either an address pair or None
         try:
@@ -372,6 +385,7 @@ class dispatcher:
             else:
                 raise
 
+    # 产生一个read事件但是 socket.recv 接收数据0，标志连接关闭
     def recv(self, buffer_size):
         try:
             data = self.socket.recv(buffer_size)
@@ -390,6 +404,7 @@ class dispatcher:
             else:
                 raise
 
+    # 关闭链接，并从 channel map 中删除
     def close(self):
         self.connected = False
         self.accepting = False
@@ -427,11 +442,13 @@ class dispatcher:
             print '%s: %s' % (type, message)
 
     def handle_read_event(self):
+        # 监听socket
         if self.accepting:
             # accepting sockets are never connected, they "spawn" new
             # sockets that are connected
             self.handle_accept()
         elif not self.connected:
+            # 如果正在连接
             if self.connecting:
                 self.handle_connect_event()
             self.handle_read()

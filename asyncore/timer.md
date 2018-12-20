@@ -24,19 +24,21 @@ class TimeServer(asyncore.dispatcher):
         print "listening on port", self.port
 
     def handle_accept(self):
-        channel, _ = self.accept()
+        channel, addr = self.accept()
+        print "client connect addr {}".format(addr)
         TimeChannel(channel)
+
+    def handle_connect(self):
+        print "connected"
 
 
 server = TimeServer(8037)
-print server
 asyncore.loop()
 ```
 
 simple client
 
 ```python
-
 import asyncore, socket
 
 
@@ -46,6 +48,9 @@ class Client(asyncore.dispatcher_with_send):
         self.create_socket(socket.AF_INET, socket.SOCK_STREAM)
         self.connect((host, port))
         self.out_buffer = message
+
+    def handle_connect(self):
+        print "connected"
 
     def handle_close(self):
         self.close()

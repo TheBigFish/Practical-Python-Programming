@@ -445,6 +445,9 @@ _reraised_exceptions = (ExitNow, KeyboardInterrupt, SystemExit)
         obj.handle_error()
 </code></pre>
 <h2 id="poll">poll</h2>
+<ul>
+<li>&#x670D;&#x52A1;&#x7AEF;&#x76D1;&#x542C;&#x8FDB;&#x7A0B;&#x4E0D;&#x52A0;&#x5165; writable &#x96C6;&#x5408;</li>
+</ul>
 <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">poll</span><span class="hljs-params">(timeout=<span class="hljs-number">0.0</span>, map=None)</span>:</span>
     <span class="hljs-keyword">if</span> map <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
         map = socket_map
@@ -527,6 +530,7 @@ poll3 = poll2                           <span class="hljs-comment"># Alias for b
 </code></pre>
 <h2 id="loop">loop</h2>
 <p>&#x5FAA;&#x73AF;&#x51FD;&#x6570;</p>
+<p>dispatcher.close &#x4F1A;&#x4ECE; map &#x4E2D;&#x5220;&#x9664; socket,map &#x4E3A;&#x7A7A;&#x65F6;&#xFF0C;loop &#x9000;&#x51FA;</p>
 <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loop</span><span class="hljs-params">(timeout=<span class="hljs-number">30.0</span>, use_poll=False, map=None, count=None)</span>:</span>
     <span class="hljs-keyword">if</span> map <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
         map = socket_map
@@ -546,13 +550,16 @@ poll3 = poll2                           <span class="hljs-comment"># Alias for b
             count = count - <span class="hljs-number">1</span>
 </code></pre>
 <h2 id="dispatcher">dispatcher</h2>
-<p>&#x6838;&#x5FC3;&#x7C7B;</p>
+<p>&#x6838;&#x5FC3;&#x7C7B;<br>&#x5305;&#x88C5; socket &#x5E76;&#x5BF9;&#x5916;&#x63D0;&#x4F9B; hooks &#x7528;&#x4E8E;&#x5904;&#x7406; connecting,reading,writing &#x7B49;&#x4E8B;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E9B;&#x4E8B;&#x4EF6;&#x5728; loop &#x4E2D;&#x8C03;&#x7528;</p>
 <pre><code class="lang-python">
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">dispatcher</span>:</span>
 
     debug = <span class="hljs-keyword">False</span>
+    <span class="hljs-comment"># &#x5DF2;&#x8FDE;&#x63A5;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;/&#x670D;&#x52A1;&#x7AEF; socket</span>
     connected = <span class="hljs-keyword">False</span>
+    <span class="hljs-comment"># &#x4EC5;&#x76D1;&#x542C;socket&#x7684; accepting &#x4E3A; true</span>
     accepting = <span class="hljs-keyword">False</span>
+    <span class="hljs-comment"># &#x8FDE;&#x63A5;&#x4E2D;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF; socket</span>
     connecting = <span class="hljs-keyword">False</span>
     closing = <span class="hljs-keyword">False</span>
     addr = <span class="hljs-keyword">None</span>
@@ -566,6 +573,7 @@ poll3 = poll2                           <span class="hljs-comment"># Alias for b
 
         self._fileno = <span class="hljs-keyword">None</span>
 
+        <span class="hljs-comment"># &#x4F20;&#x5165;socket,&#x5C06;&#x4E4B;&#x7EB3;&#x5165;map&#x76D1;&#x542C;</span>
         <span class="hljs-keyword">if</span> sock:
             <span class="hljs-comment"># Set to nonblocking just to make sure for cases where we</span>
             <span class="hljs-comment"># get a socket from a blocking source.</span>
@@ -605,6 +613,7 @@ poll3 = poll2                           <span class="hljs-comment"># Alias for b
 
     __str__ = __repr__
 
+    <span class="hljs-comment">## &#x5C06;&#x81EA;&#x8EAB;&#xFF08;socket &#x8FDE;&#x63A5;&#xFF09;&#x52A0;&#x5165; map&#xFF0C;loop &#x4E2D;&#x76D1;&#x542C;</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_channel</span><span class="hljs-params">(self, map=None)</span>:</span>
         <span class="hljs-comment">#self.log_info(&apos;adding channel %s&apos; % self)</span>
         <span class="hljs-keyword">if</span> map <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
@@ -620,12 +629,14 @@ poll3 = poll2                           <span class="hljs-comment"># Alias for b
             <span class="hljs-keyword">del</span> map[fd]
         self._fileno = <span class="hljs-keyword">None</span>
 
+    <span class="hljs-comment"># &#x6CE8;&#x518C;&#x4E00;&#x4E2A; socket</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_socket</span><span class="hljs-params">(self, family, type)</span>:</span>
         self.family_and_type = family, type
         sock = socket.socket(family, type)
         sock.setblocking(<span class="hljs-number">0</span>)
         self.set_socket(sock)
 
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x57FA;&#x672C;&#x4FE1;&#x606F;&#x5E76;&#x52A0;&#x5165;map</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_socket</span><span class="hljs-params">(self, sock, map=None)</span>:</span>
         self.socket = sock
 <span class="hljs-comment">##        self.__dict__[&apos;socket&apos;] = sock</span>
@@ -683,6 +694,7 @@ poll3 = poll2                           <span class="hljs-comment"># Alias for b
         <span class="hljs-keyword">else</span>:
             <span class="hljs-keyword">raise</span> socket.error(err, errorcode[err])
 
+    <span class="hljs-comment"># &#x670D;&#x52A1;&#x7AEF;&#x63A5;&#x6536;</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">accept</span><span class="hljs-params">(self)</span>:</span>
         <span class="hljs-comment"># XXX can return either an address pair or None</span>
         <span class="hljs-keyword">try</span>:
@@ -710,6 +722,7 @@ poll3 = poll2                           <span class="hljs-comment"># Alias for b
             <span class="hljs-keyword">else</span>:
                 <span class="hljs-keyword">raise</span>
 
+    <span class="hljs-comment"># &#x4EA7;&#x751F;&#x4E00;&#x4E2A;read&#x4E8B;&#x4EF6;&#x4F46;&#x662F; socket.recv &#x63A5;&#x6536;&#x6570;&#x636E;0&#xFF0C;&#x6807;&#x5FD7;&#x8FDE;&#x63A5;&#x5173;&#x95ED;</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">recv</span><span class="hljs-params">(self, buffer_size)</span>:</span>
         <span class="hljs-keyword">try</span>:
             data = self.socket.recv(buffer_size)
@@ -728,6 +741,7 @@ poll3 = poll2                           <span class="hljs-comment"># Alias for b
             <span class="hljs-keyword">else</span>:
                 <span class="hljs-keyword">raise</span>
 
+    <span class="hljs-comment"># &#x5173;&#x95ED;&#x94FE;&#x63A5;&#xFF0C;&#x5E76;&#x4ECE; channel map &#x4E2D;&#x5220;&#x9664;</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">close</span><span class="hljs-params">(self)</span>:</span>
         self.connected = <span class="hljs-keyword">False</span>
         self.accepting = <span class="hljs-keyword">False</span>
@@ -765,11 +779,13 @@ poll3 = poll2                           <span class="hljs-comment"># Alias for b
             <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;%s: %s&apos;</span> % (type, message)
 
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_read_event</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment"># &#x76D1;&#x542C;socket</span>
         <span class="hljs-keyword">if</span> self.accepting:
             <span class="hljs-comment"># accepting sockets are never connected, they &quot;spawn&quot; new</span>
             <span class="hljs-comment"># sockets that are connected</span>
             self.handle_accept()
         <span class="hljs-keyword">elif</span> <span class="hljs-keyword">not</span> self.connected:
+            <span class="hljs-comment"># &#x5982;&#x679C;&#x6B63;&#x5728;&#x8FDE;&#x63A5;</span>
             <span class="hljs-keyword">if</span> self.connecting:
                 self.handle_connect_event()
             self.handle_read()
@@ -1034,7 +1050,7 @@ poll3 = poll2                           <span class="hljs-comment"># Alias for b
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"source","level":"1.1.2.3","depth":3,"next":{"title":"itertools","level":"1.1.3","depth":2,"path":"itertools/README.md","ref":"itertools/README.md","articles":[]},"previous":{"title":"example-echo","level":"1.1.2.2","depth":3,"path":"asyncore/echo.md","ref":"asyncore/echo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"asyncore/asyncore.md","mtime":"2018-12-18T07:19:54.114Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-18T07:20:03.549Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"source","level":"1.1.2.3","depth":3,"next":{"title":"itertools","level":"1.1.3","depth":2,"path":"itertools/README.md","ref":"itertools/README.md","articles":[]},"previous":{"title":"example-echo","level":"1.1.2.2","depth":3,"path":"asyncore/echo.md","ref":"asyncore/echo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"asyncore/asyncore.md","mtime":"2018-12-18T09:32:03.964Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-18T09:36:26.909Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
