@@ -1,7 +1,14 @@
 - [简介](#%E7%AE%80%E4%BB%8B)
 - [HTTPServer](#httpserver)
+  - [HTTPServer.\_\_init\_\_](#httpserverinit)
+  - [HTTPServer.listen](#httpserverlisten)
+  - [HTTPServer.bind](#httpserverbind)
+  - [HTTPServer.start](#httpserverstart)
+  - [HTTPServer.stop](#httpserverstop)
+  - [HTTPServer.\_handle_events](#httpserverhandleevents)
 - [HTTPConnection](#httpconnection)
 - [HTTPRequest](#httprequest)
+- [版权](#%E7%89%88%E6%9D%83)
 
 ## 简介
 
@@ -48,80 +55,14 @@ You requested /hello
 
 非阻塞单线程 http 服务
 
+### HTTPServer.\_\_init\_\_
+
+保存 callback 回调对象
+
 ```python
 class HTTPServer(object):
-    """A non-blocking, single-threaded HTTP server.
-
-    A server is defined by a request callback that takes an HTTPRequest
-    instance as an argument and writes a valid HTTP response with
-    request.write(). request.finish() finishes the request (but does not
-    necessarily close the connection in the case of HTTP/1.1 keep-alive
-    requests). A simple example server that echoes back the URI you
-    requested:
-
-        import httpserver
-        import ioloop
-
-        def handle_request(request):
-           message = "You requested %s\n" % request.uri
-           request.write("HTTP/1.1 200 OK\r\nContent-Length: %d\r\n\r\n%s" % (
-                         len(message), message))
-           request.finish()
-
-        http_server = httpserver.HTTPServer(handle_request)
-        http_server.listen(8888)
-        ioloop.IOLoop.instance().start()
-
-    HTTPServer is a very basic connection handler. Beyond parsing the
-    HTTP request body and headers, the only HTTP semantics implemented
-    in HTTPServer is HTTP/1.1 keep-alive connections. We do not, however,
-    implement chunked encoding, so the request callback must provide a
-    Content-Length header or implement chunked encoding for HTTP/1.1
-    requests for the server to run correctly for HTTP/1.1 clients. If
-    the request handler is unable to do this, you can provide the
-    no_keep_alive argument to the HTTPServer constructor, which will
-    ensure the connection is closed on every request no matter what HTTP
-    version the client is using.
-
-    If xheaders is True, we support the X-Real-Ip and X-Scheme headers,
-    which override the remote IP and HTTP scheme for all requests. These
-    headers are useful when running Tornado behind a reverse proxy or
-    load balancer.
-
-    HTTPServer can serve HTTPS (SSL) traffic with Python 2.6+ and OpenSSL.
-    To make this server serve SSL traffic, send the ssl_options dictionary
-    argument with the arguments required for the ssl.wrap_socket() method,
-    including "certfile" and "keyfile":
-
-       HTTPServer(applicaton, ssl_options={
-           "certfile": os.path.join(data_dir, "mydomain.crt"),
-           "keyfile": os.path.join(data_dir, "mydomain.key"),
-       })
-
-    By default, listen() runs in a single thread in a single process. You
-    can utilize all available CPUs on this machine by calling bind() and
-    start() instead of listen():
-
-        http_server = httpserver.HTTPServer(handle_request)
-        http_server.bind(8888)
-        http_server.start(0) # Forks multiple sub-processes
-        ioloop.IOLoop.instance().start()
-
-    start(0) detects the number of CPUs on this machine and "pre-forks" that
-    number of child processes so that we have one Tornado process per CPU,
-    all with their own IOLoop. You can also pass in the specific number of
-    child processes you want to run with if you want to override this
-    auto-detection.
-    """
     def __init__(self, request_callback, no_keep_alive=False, io_loop=None,
                  xheaders=False, ssl_options=None):
-        """Initializes the server with the given request callback.
-
-        If you use pre-forking/start() instead of the listen() method to
-        start your server, you should not pass an IOLoop instance to this
-        constructor. Each pre-forked child process will create its own
-        IOLoop instance after the forking process.
-        """
         self.request_callback = request_callback
         self.no_keep_alive = no_keep_alive
         self.io_loop = io_loop
@@ -129,19 +70,26 @@ class HTTPServer(object):
         self.ssl_options = ssl_options
         self._socket = None
         self._started = False
+```
 
+### HTTPServer.listen
+
+1. 绑定端口
+2. 监听
+3. 注册到 ioloop
+
+```python
     def listen(self, port, address=""):
-        """Binds to the given port and starts the server in a single process.
 
-        This method is a shortcut for:
-
-            server.bind(port, address)
-            server.start(1)
-
-        """
         self.bind(port, address)
         self.start(1)
+```
 
+### HTTPServer.bind
+
+绑定
+
+```python
     def bind(self, port, address=""):
         """Binds this server to the given port on the given IP address.
 
@@ -158,26 +106,15 @@ class HTTPServer(object):
         self._socket.setblocking(0)
         self._socket.bind((address, port))
         self._socket.listen(128)
+```
 
+### HTTPServer.start
+
+在 IOLoop 中启动监听服务  
+将\_handle_events 函数注册到监听 socket 的 read 事件
+
+```python
     def start(self, num_processes=1):
-        """Starts this server in the IOLoop.
-
-        By default, we run the server in this process and do not fork any
-        additional child process.
-
-        If num_processes is None or <= 0, we detect the number of cores
-        available on this machine and fork that number of child
-        processes. If num_processes is given and > 1, we fork that
-        specific number of sub-processes.
-
-        Since we use processes and not threads, there is no shared memory
-        between any server code.
-
-        Note that multiple processes are not compatible with the autoreload
-        module (or the debug=True option to tornado.web.Application).
-        When using multiple processes, no IOLoops can be created or
-        referenced until after the call to HTTPServer.start(n).
-        """
         assert not self._started
         self._started = True
         if num_processes is None or num_processes <= 0:
@@ -207,6 +144,8 @@ class HTTPServer(object):
                         self._socket.fileno(), self._handle_events,
                         ioloop.IOLoop.READ)
                     return
+            # 0: os.WNOHANG 无子进程退出则不阻塞
+            # 回收任意一个子 zombie进程
             os.waitpid(-1, 0)
         else:
             # 创建一个 io_loop 单例
@@ -216,11 +155,25 @@ class HTTPServer(object):
             self.io_loop.add_handler(self._socket.fileno(),
                                      self._handle_events,
                                      ioloop.IOLoop.READ)
+```
 
+### HTTPServer.stop
+
+```python
     def stop(self):
         self.io_loop.remove_handler(self._socket.fileno())
         self._socket.close()
+```
 
+### HTTPServer.\_handle_events
+
+注册到 ioloop  
+read 事件产生(新请求进来)时调用
+
+1. accept
+2. 创建 HTTPConnection，将 request_callback 注册到 ioloop
+
+```python
     def _handle_events(self, fd, events):
         while True:
             try:
@@ -266,10 +219,10 @@ class HTTPServer(object):
 
 ## HTTPConnection
 
-- 封装了一个 http 连接对象
-- 在初始化函数中完成 http 头的接收和解析
-- 完成 header 数据接收后，调用 `_on_headers` 函数
-  创建 HTTPRequest 对象，并且以该 request 对象为参数调用 self.request_callback 方法，该方法绑定到 HTTPServer 的回调
+1. 封装了一个 http 连接对象
+2. 在初始化函数中完成 http 头的接收和解析
+3. 完成 header 数据接收后，调用 `_on_headers` 函数
+   创建 HTTPRequest 对象，并且以该 request 对象为参数调用 self.request_callback 方法，该方法绑定到 HTTPServer 的回调
 
 ```python
 class HTTPConnection(object):
@@ -542,3 +495,8 @@ class HTTPRequest(object):
         return "%s(%s, headers=%s)" % (
             self.__class__.__name__, args, dict(self.headers))
 ```
+
+## 版权
+
+作者：bigfish  
+许可协议：[许可协议 知识共享署名-非商业性使用 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc/4.0/)

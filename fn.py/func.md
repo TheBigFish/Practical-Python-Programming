@@ -1,4 +1,14 @@
-func 模块主要实现两个函数 F 和 curried
+# func.py
+
+> func 模块主要实现两个函数 F 和 curried
+
+## contents
+
+- [func.py](#funcpy)
+  - [contents](#contents)
+  - [F](#f)
+  - [curried](#curried)
+  - [版权](#%E7%89%88%E6%9D%83)
 
 ## F
 
@@ -102,3 +112,8 @@ def sum3(a, b, c):
 6
 '''
 ```
+
+## 版权
+
+作者：bigfish  
+许可协议：[许可协议 知识共享署名-非商业性使用 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc/4.0/)

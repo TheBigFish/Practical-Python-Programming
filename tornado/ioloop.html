@@ -1,0 +1,1131 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ioloop.py · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="web.html" />
+    
+    
+    <link rel="prev" href="stack_context.1.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../misc/">
+            
+                <a href="../misc/">
+            
+                    
+                    misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../misc/fork.html">
+            
+                <a href="../misc/fork.html">
+            
+                    
+                    fork
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../SocketServer/">
+            
+                <a href="../SocketServer/">
+            
+                    
+                    socketserver
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.2.1" data-path="../SocketServer/socketserver.html">
+            
+                <a href="../SocketServer/socketserver.html">
+            
+                    
+                    socketserver
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../asyncore/">
+            
+                <a href="../asyncore/">
+            
+                    
+                    asyncore
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.3.1" data-path="../asyncore/timer.html">
+            
+                <a href="../asyncore/timer.html">
+            
+                    
+                    example-timer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.2" data-path="../asyncore/echo.html">
+            
+                <a href="../asyncore/echo.html">
+            
+                    
+                    example-echo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.3" data-path="../asyncore/asyncore.html">
+            
+                <a href="../asyncore/asyncore.html">
+            
+                    
+                    source
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../itertools/">
+            
+                <a href="../itertools/">
+            
+                    
+                    itertools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="../fn.py/">
+            
+                <a href="../fn.py/">
+            
+                    
+                    fn.py
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.5.1" data-path="../fn.py/op.html">
+            
+                <a href="../fn.py/op.html">
+            
+                    
+                    op
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.2" data-path="../fn.py/func.html">
+            
+                <a href="../fn.py/func.html">
+            
+                    
+                    func
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.3" data-path="../fn.py/stream.html">
+            
+                <a href="../fn.py/stream.html">
+            
+                    
+                    stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="../tablib/">
+            
+                <a href="../tablib/">
+            
+                    
+                    tablib
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    tornado
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.7.1" data-path="stack_context.1.html">
+            
+                <a href="stack_context.1.html">
+            
+                    
+                    stack_context_1.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.7.2" data-path="ioloop.html">
+            
+                <a href="ioloop.html">
+            
+                    
+                    ioloop.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.3" data-path="web.html">
+            
+                <a href="web.html">
+            
+                    
+                    web.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.4" data-path="httpserver.html">
+            
+                <a href="httpserver.html">
+            
+                    
+                    httpserver.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.5" data-path="iostream.html">
+            
+                <a href="iostream.html">
+            
+                    
+                    iostream.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >ioloop.py</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="ioloop">ioloop</h1>
+<p>A level-triggered I/O loop for non-blocking sockets.<br>&#x6761;&#x4EF6;&#x89E6;&#x53D1;&#x3001;&#x975E;&#x963B;&#x585E;&#x7684; socket I/O &#x5FAA;&#x73AF;</p>
+<p>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; TCP &#x670D;&#x52A1;&#xFF1A;</p>
+<h2 id="contents">contents</h2>
+<ul>
+<li><a href="#ioloop">ioloop</a><ul>
+<li><a href="#contents">contents</a></li>
+<li><a href="#head">head</a></li>
+<li><a href="#ioloop">IOLoop</a></li>
+<li><a href="#ioloopinit">IOLoop.__init__</a></li>
+<li><a href="#ioloopinstance">IOLoop.instance</a><ul>
+<li><a href="#ioloopaddhandler">IOLoop.add_handler</a></li>
+<li><a href="#ioloopupdatehandler">IOLoop.update_handler</a></li>
+<li><a href="#ioloopstart">IOLoop.start</a></li>
+</ul>
+</li>
+<li><a href="#select">_Select</a></li>
+<li><a href="#poll">_poll</a></li>
+<li><a href="#signal">signal</a></li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> errno
+<span class="hljs-keyword">import</span> functools
+<span class="hljs-keyword">from</span> tornado <span class="hljs-keyword">import</span> ioloop
+<span class="hljs-keyword">import</span> socket
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">connection_ready</span><span class="hljs-params">(sock, fd, events)</span>:</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        <span class="hljs-keyword">try</span>:
+            connection, address = sock.accept()
+        <span class="hljs-keyword">except</span> socket.error, e:
+            <span class="hljs-keyword">if</span> e.args[<span class="hljs-number">0</span>] <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (errno.EWOULDBLOCK, errno.EAGAIN):
+                <span class="hljs-keyword">raise</span>
+            <span class="hljs-keyword">return</span>
+        connection.setblocking(<span class="hljs-number">0</span>)
+        <span class="hljs-comment">#handle_connection(connection, address)</span>
+
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, <span class="hljs-number">0</span>)
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, <span class="hljs-number">1</span>)
+sock.setblocking(<span class="hljs-number">0</span>)
+sock.bind((<span class="hljs-string">&quot;&quot;</span>, <span class="hljs-number">8080</span>))
+sock.listen(<span class="hljs-number">128</span>)
+
+io_loop = ioloop.IOLoop.instance()
+callback = functools.partial(connection_ready, sock)
+io_loop.add_handler(sock.fileno(), callback, io_loop.READ)
+io_loop.start()
+</code></pre>
+<h2 id="head">head</h2>
+<pre><code class="lang-python">
+
+<span class="hljs-keyword">import</span> bisect
+<span class="hljs-keyword">import</span> errno
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> logging
+<span class="hljs-keyword">import</span> select
+<span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> traceback
+
+<span class="hljs-keyword">from</span> tornado <span class="hljs-keyword">import</span> stack_context
+
+<span class="hljs-keyword">try</span>:
+    <span class="hljs-keyword">import</span> signal
+<span class="hljs-keyword">except</span> ImportError:
+    signal = <span class="hljs-keyword">None</span>
+
+<span class="hljs-keyword">try</span>:
+    <span class="hljs-keyword">import</span> fcntl
+<span class="hljs-keyword">except</span> ImportError:
+    <span class="hljs-keyword">if</span> os.name == <span class="hljs-string">&apos;nt&apos;</span>:
+        <span class="hljs-keyword">from</span> tornado <span class="hljs-keyword">import</span> win32_support
+        <span class="hljs-keyword">from</span> tornado <span class="hljs-keyword">import</span> win32_support <span class="hljs-keyword">as</span> fcntl
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">raise</span>
+</code></pre>
+<h2 id="ioloop">IOLoop</h2>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IOLoop</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-comment"># Constants from the epoll module</span>
+    _EPOLLIN = <span class="hljs-number">0x001</span>
+    _EPOLLPRI = <span class="hljs-number">0x002</span>
+    _EPOLLOUT = <span class="hljs-number">0x004</span>
+    _EPOLLERR = <span class="hljs-number">0x008</span>
+    _EPOLLHUP = <span class="hljs-number">0x010</span>
+    _EPOLLRDHUP = <span class="hljs-number">0x2000</span>
+    _EPOLLONESHOT = (<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">30</span>)
+    _EPOLLET = (<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">31</span>)
+
+    <span class="hljs-comment"># Our events map exactly to the epoll events</span>
+    NONE = <span class="hljs-number">0</span>
+    READ = _EPOLLIN
+    WRITE = _EPOLLOUT
+    ERROR = _EPOLLERR | _EPOLLHUP | _EPOLLRDHUP
+</code></pre>
+<h2 id="ioloopinit">IOLoop.__init__</h2>
+<p>_running: &#x63A7;&#x5236;&#x5FAA;&#x73AF;&#x9000;&#x51FA;
+_handlers: &#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#x53C2;&#x6570;&#x4E3A; (fd, events)</p>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, impl=None)</span>:</span>
+        self._impl = impl <span class="hljs-keyword">or</span> _poll()
+        <span class="hljs-keyword">if</span> hasattr(self._impl, <span class="hljs-string">&apos;fileno&apos;</span>):
+            self._set_close_exec(self._impl.fileno())
+        self._handlers = {}
+        self._events = {}
+        self._callbacks = []
+        self._timeouts = []
+        self._running = <span class="hljs-keyword">False</span>
+        self._stopped = <span class="hljs-keyword">False</span>
+        self._blocking_signal_threshold = <span class="hljs-keyword">None</span>
+
+        <span class="hljs-comment"># Create a pipe that we send bogus data to when we want to wake</span>
+        <span class="hljs-comment"># the I/O loop when it is idle</span>
+        <span class="hljs-keyword">if</span> os.name != <span class="hljs-string">&apos;nt&apos;</span>:
+            r, w = os.pipe()
+            self._set_nonblocking(r)
+            self._set_nonblocking(w)
+            self._set_close_exec(r)
+            self._set_close_exec(w)
+            self._waker_reader = os.fdopen(r, <span class="hljs-string">&quot;rb&quot;</span>, <span class="hljs-number">0</span>)
+            self._waker_writer = os.fdopen(w, <span class="hljs-string">&quot;wb&quot;</span>, <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">else</span>:
+            self._waker_reader = self._waker_writer = win32_support.Pipe()
+            r = self._waker_writer.reader_fd
+        self.add_handler(r, self._read_waker, self.READ)
+        <span class="hljs-keyword">raise</span>
+</code></pre>
+<h2 id="ioloopinstance">IOLoop.instance</h2>
+<p>&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x552F;&#x4E00;&#x7684; IOLoop &#x5BF9;&#x8C61;</p>
+<pre><code class="lang-python"><span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">instance</span><span class="hljs-params">(cls)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Returns a global IOLoop instance.
+
+        Most single-threaded applications have a single, global IOLoop.
+        Use this method instead of passing around IOLoop instances
+        throughout your code.
+
+        A common pattern for classes that depend on IOLoops is to use
+        a default argument to enable programs with multiple IOLoops
+        but not require the argument for simpler applications:
+
+            class MyClass(object):
+                def __init__(self, io_loop=None):
+                    self.io_loop = io_loop or IOLoop.instance()
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(cls, <span class="hljs-string">&quot;_instance&quot;</span>):
+            cls._instance = cls()
+        <span class="hljs-keyword">return</span> cls._instance
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">initialized</span><span class="hljs-params">(cls)</span>:</span>
+        <span class="hljs-keyword">return</span> hasattr(cls, <span class="hljs-string">&quot;_instance&quot;</span>)
+</code></pre>
+<h3 id="ioloopaddhandler">IOLoop.add_handler</h3>
+<p>&#x6CE8;&#x518C; socket &#x4E8B;&#x4EF6;&#x56DE;&#x8C03;</p>
+<ol>
+<li>&#x5C06;&#x56DE;&#x8C03;&#x4E8B;&#x4EF6;&#x4F7F;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#x5305;&#x88F9;&#x540E;&#x52A0;&#x5165;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x5217;&#x8868;</li>
+<li>&#x5411; poll &#x6CE8;&#x518C; socket &#x4E8B;&#x4EF6;</li>
+</ol>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_handler</span><span class="hljs-params">(self, fd, handler, events)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Registers the given handler to receive the given events for fd.&quot;&quot;&quot;</span>
+        self._handlers[fd] = stack_context.wrap(handler)
+        self._impl.register(fd, events | self.ERROR)
+</code></pre>
+<h3 id="ioloopupdatehandler">IOLoop.update_handler</h3>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">update_handler</span><span class="hljs-params">(self, fd, events)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Changes the events we listen for fd.&quot;&quot;&quot;</span>
+        self._impl.modify(fd, events | self.ERROR)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">remove_handler</span><span class="hljs-params">(self, fd)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Stop listening for events on fd.&quot;&quot;&quot;</span>
+        self._handlers.pop(fd, <span class="hljs-keyword">None</span>)
+        self._events.pop(fd, <span class="hljs-keyword">None</span>)
+        <span class="hljs-keyword">try</span>:
+            self._impl.unregister(fd)
+        <span class="hljs-keyword">except</span> (OSError, IOError):
+            logging.debug(<span class="hljs-string">&quot;Error deleting fd from IOLoop&quot;</span>, exc_info=<span class="hljs-keyword">True</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_blocking_signal_threshold</span><span class="hljs-params">(self, seconds, action)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Sends a signal if the ioloop is blocked for more than s seconds.
+
+        Pass seconds=None to disable.  Requires python 2.6 on a unixy
+        platform.
+
+        The action parameter is a python signal handler.  Read the
+        documentation for the python &apos;signal&apos; module for more information.
+        If action is None, the process will be killed if it is blocked for
+        too long.
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(signal, <span class="hljs-string">&quot;setitimer&quot;</span>):
+            logging.error(<span class="hljs-string">&quot;set_blocking_signal_threshold requires a signal module &quot;</span>
+                       <span class="hljs-string">&quot;with the setitimer method&quot;</span>)
+            <span class="hljs-keyword">return</span>
+        self._blocking_signal_threshold = seconds
+        <span class="hljs-keyword">if</span> seconds <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            signal.signal(signal.SIGALRM,
+                          action <span class="hljs-keyword">if</span> action <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span> <span class="hljs-keyword">else</span> signal.SIG_DFL)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_blocking_log_threshold</span><span class="hljs-params">(self, seconds)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Logs a stack trace if the ioloop is blocked for more than s seconds.
+        Equivalent to set_blocking_signal_threshold(seconds, self.log_stack)
+        &quot;&quot;&quot;</span>
+        self.set_blocking_signal_threshold(seconds, self.log_stack)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">log_stack</span><span class="hljs-params">(self, signal, frame)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Signal handler to log the stack trace of the current thread.
+
+        For use with set_blocking_signal_threshold.
+        &quot;&quot;&quot;</span>
+        logging.warning(<span class="hljs-string">&apos;IOLoop blocked for %f seconds in\n%s&apos;</span>,
+                        self._blocking_signal_threshold,
+                        <span class="hljs-string">&apos;&apos;</span>.join(traceback.format_stack(frame)))
+</code></pre>
+<h3 id="ioloopstart">IOLoop.start</h3>
+<p>&#x542F;&#x52A8; I/O &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</p>
+<ol>
+<li>&#x8C03;&#x7528;&#x6CE8;&#x518C;&#x7684;&#x56DE;&#x8C03;&#x5BF9;&#x8C61;</li>
+<li>&#x8C03;&#x7528;&#x6CE8;&#x518C;&#x7684;&#x5EF6;&#x65F6;&#x56DE;&#x8C03;&#x5BF9;&#x8C61;</li>
+<li>poll</li>
+<li>&#x8C03;&#x7528;&#x6CE8;&#x518C;&#x7684; socket &#x4E8B;&#x4EF6;&#x56DE;&#x8C03;&#x5BF9;&#x8C61;</li>
+</ol>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Starts the I/O loop.
+
+        The loop will run until one of the I/O handlers calls stop(), which
+        will make the loop stop after the current event iteration completes.
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">if</span> self._stopped:
+            self._stopped = <span class="hljs-keyword">False</span>
+            <span class="hljs-keyword">return</span>
+        self._running = <span class="hljs-keyword">True</span>
+        <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+            <span class="hljs-comment"># Never use an infinite timeout here - it can stall epoll</span>
+            poll_timeout = <span class="hljs-number">0.2</span>
+
+            <span class="hljs-comment"># Prevent IO event starvation by delaying new callbacks</span>
+            <span class="hljs-comment"># to the next iteration of the event loop.</span>
+
+            <span class="hljs-comment"># &#x8C03;&#x7528;&#x6CE8;&#x518C;&#x7684;&#x56DE;&#x8C03;&#x5BF9;&#x8C61;</span>
+            callbacks = self._callbacks
+            self._callbacks = []
+            <span class="hljs-keyword">for</span> callback <span class="hljs-keyword">in</span> callbacks:
+                self._run_callback(callback)
+
+            <span class="hljs-keyword">if</span> self._callbacks:
+                poll_timeout = <span class="hljs-number">0.0</span>
+
+            <span class="hljs-comment"># &#x8C03;&#x7528;&#x6CE8;&#x518C;&#x7684;&#x5EF6;&#x65F6;&#x56DE;&#x8C03;&#x5BF9;&#x8C61;</span>
+            <span class="hljs-keyword">if</span> self._timeouts:
+                now = time.time()
+                <span class="hljs-keyword">while</span> self._timeouts <span class="hljs-keyword">and</span> self._timeouts[<span class="hljs-number">0</span>].deadline &lt;= now:
+                    timeout = self._timeouts.pop(<span class="hljs-number">0</span>)
+                    self._run_callback(timeout.callback)
+                <span class="hljs-keyword">if</span> self._timeouts:
+                    milliseconds = self._timeouts[<span class="hljs-number">0</span>].deadline - now
+                    poll_timeout = min(milliseconds, poll_timeout)
+
+            <span class="hljs-comment"># &#x5982;&#x679C;&#x5916;&#x90E8;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;&#x9000;&#x51FA;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</span>
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self._running:
+                <span class="hljs-keyword">break</span>
+
+            <span class="hljs-comment"># TODO</span>
+            <span class="hljs-keyword">if</span> self._blocking_signal_threshold <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+                <span class="hljs-comment"># clear alarm so it doesn&apos;t fire while poll is waiting for</span>
+                <span class="hljs-comment"># events.</span>
+                signal.setitimer(signal.ITIMER_REAL, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+
+            <span class="hljs-keyword">try</span>:
+                event_pairs = self._impl.poll(poll_timeout)
+            <span class="hljs-keyword">except</span> Exception, e:
+                <span class="hljs-comment"># Depending on python version and IOLoop implementation,</span>
+                <span class="hljs-comment"># different exception types may be thrown and there are</span>
+                <span class="hljs-comment"># two ways EINTR might be signaled:</span>
+                <span class="hljs-comment"># * e.errno == errno.EINTR</span>
+                <span class="hljs-comment"># * e.args is like (errno.EINTR, &apos;Interrupted system call&apos;)</span>
+                <span class="hljs-keyword">if</span> (getattr(e, <span class="hljs-string">&apos;errno&apos;</span>, <span class="hljs-keyword">None</span>) == errno.EINTR <span class="hljs-keyword">or</span>
+                    (isinstance(getattr(e, <span class="hljs-string">&apos;args&apos;</span>, <span class="hljs-keyword">None</span>), tuple) <span class="hljs-keyword">and</span>
+                     len(e.args) == <span class="hljs-number">2</span> <span class="hljs-keyword">and</span> e.args[<span class="hljs-number">0</span>] == errno.EINTR)):
+                    <span class="hljs-keyword">continue</span>
+                <span class="hljs-keyword">else</span>:
+                    <span class="hljs-keyword">raise</span>
+
+            <span class="hljs-keyword">if</span> self._blocking_signal_threshold <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+                signal.setitimer(signal.ITIMER_REAL,
+                                 self._blocking_signal_threshold, <span class="hljs-number">0</span>)
+
+            <span class="hljs-comment"># Pop one fd at a time from the set of pending fds and run</span>
+            <span class="hljs-comment"># its handler. Since that handler may perform actions on</span>
+            <span class="hljs-comment"># other file descriptors, there may be reentrant calls to</span>
+            <span class="hljs-comment"># this IOLoop that update self._events</span>
+            self._events.update(event_pairs)
+            <span class="hljs-keyword">while</span> self._events:
+                fd, events = self._events.popitem()
+                <span class="hljs-keyword">try</span>:
+                    self._handlers[fd](fd, events)
+                <span class="hljs-keyword">except</span> (KeyboardInterrupt, SystemExit):
+                    <span class="hljs-keyword">raise</span>
+                <span class="hljs-keyword">except</span> (OSError, IOError), e:
+                    <span class="hljs-keyword">if</span> e.args[<span class="hljs-number">0</span>] == errno.EPIPE:
+                        <span class="hljs-comment"># Happens when the client closes the connection</span>
+                        <span class="hljs-keyword">pass</span>
+                    <span class="hljs-keyword">else</span>:
+                        logging.error(<span class="hljs-string">&quot;Exception in I/O handler for fd %d&quot;</span>,
+                                      fd, exc_info=<span class="hljs-keyword">True</span>)
+                <span class="hljs-keyword">except</span>:
+                    logging.error(<span class="hljs-string">&quot;Exception in I/O handler for fd %d&quot;</span>,
+                                  fd, exc_info=<span class="hljs-keyword">True</span>)
+        <span class="hljs-comment"># reset the stopped flag so another start/stop pair can be issued</span>
+        self._stopped = <span class="hljs-keyword">False</span>
+        <span class="hljs-keyword">if</span> self._blocking_signal_threshold <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            signal.setitimer(signal.ITIMER_REAL, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stop</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Stop the loop after the current event loop iteration is complete.
+        If the event loop is not currently running, the next call to start()
+        will return immediately.
+
+        To use asynchronous methods from otherwise-synchronous code (such as
+        unit tests), you can start and stop the event loop like this:
+          ioloop = IOLoop()
+          async_method(ioloop=ioloop, callback=ioloop.stop)
+          ioloop.start()
+        ioloop.start() will return after async_method has run its callback,
+        whether that callback was invoked before or after ioloop.start.
+        &quot;&quot;&quot;</span>
+        self._running = <span class="hljs-keyword">False</span>
+        self._stopped = <span class="hljs-keyword">True</span>
+        self._wake()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">running</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Returns true if this IOLoop is currently running.&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">return</span> self._running
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_timeout</span><span class="hljs-params">(self, deadline, callback)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Calls the given callback at the time deadline from the I/O loop.
+
+        Returns a handle that may be passed to remove_timeout to cancel.
+        &quot;&quot;&quot;</span>
+        timeout = _Timeout(deadline, stack_context.wrap(callback))
+        bisect.insort(self._timeouts, timeout)
+        <span class="hljs-keyword">return</span> timeout
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">remove_timeout</span><span class="hljs-params">(self, timeout)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Cancels a pending timeout.
+
+        The argument is a handle as returned by add_timeout.
+        &quot;&quot;&quot;</span>
+        self._timeouts.remove(timeout)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_callback</span><span class="hljs-params">(self, callback)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Calls the given callback on the next I/O loop iteration.
+
+        It is safe to call this method from any thread at any time.
+        Note that this is the *only* method in IOLoop that makes this
+        guarantee; all other interaction with the IOLoop must be done
+        from that IOLoop&apos;s thread.  add_callback() may be used to transfer
+        control from other threads to the IOLoop&apos;s thread.
+        &quot;&quot;&quot;</span>
+        self._callbacks.append(stack_context.wrap(callback))
+        self._wake()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_wake</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            self._waker_writer.write(<span class="hljs-string">&quot;x&quot;</span>)
+        <span class="hljs-keyword">except</span> IOError:
+            <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_run_callback</span><span class="hljs-params">(self, callback)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            callback()
+        <span class="hljs-keyword">except</span> (KeyboardInterrupt, SystemExit):
+            <span class="hljs-keyword">raise</span>
+        <span class="hljs-keyword">except</span>:
+            self.handle_callback_exception(callback)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_callback_exception</span><span class="hljs-params">(self, callback)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;This method is called whenever a callback run by the IOLoop
+        throws an exception.
+
+        By default simply logs the exception as an error.  Subclasses
+        may override this method to customize reporting of exceptions.
+
+        The exception itself is not passed explicitly, but is available
+        in sys.exc_info.
+        &quot;&quot;&quot;</span>
+        logging.error(<span class="hljs-string">&quot;Exception in callback %r&quot;</span>, callback, exc_info=<span class="hljs-keyword">True</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_read_waker</span><span class="hljs-params">(self, fd, events)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+                self._waker_reader.read()
+        <span class="hljs-keyword">except</span> IOError:
+            <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_set_nonblocking</span><span class="hljs-params">(self, fd)</span>:</span>
+        flags = fcntl.fcntl(fd, fcntl.F_GETFL)
+        fcntl.fcntl(fd, fcntl.F_SETFL, flags | os.O_NONBLOCK)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_set_close_exec</span><span class="hljs-params">(self, fd)</span>:</span>
+        flags = fcntl.fcntl(fd, fcntl.F_GETFD)
+        fcntl.fcntl(fd, fcntl.F_SETFD, flags | fcntl.FD_CLOEXEC)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">_Timeout</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;An IOLoop timeout, a UNIX timestamp and a callback&quot;&quot;&quot;</span>
+
+    <span class="hljs-comment"># Reduce memory overhead when there are lots of pending callbacks</span>
+    __slots__ = [<span class="hljs-string">&apos;deadline&apos;</span>, <span class="hljs-string">&apos;callback&apos;</span>]
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, deadline, callback)</span>:</span>
+        self.deadline = deadline
+        self.callback = callback
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__cmp__</span><span class="hljs-params">(self, other)</span>:</span>
+        <span class="hljs-keyword">return</span> cmp((self.deadline, id(self.callback)),
+                   (other.deadline, id(other.callback)))
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PeriodicCallback</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Schedules the given callback to be called periodically.
+
+    The callback is called every callback_time milliseconds.
+    &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, callback, callback_time, io_loop=None)</span>:</span>
+        self.callback = callback
+        self.callback_time = callback_time
+        self.io_loop = io_loop <span class="hljs-keyword">or</span> IOLoop.instance()
+        self._running = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span><span class="hljs-params">(self)</span>:</span>
+        self._running = <span class="hljs-keyword">True</span>
+        timeout = time.time() + self.callback_time / <span class="hljs-number">1000.0</span>
+        self.io_loop.add_timeout(timeout, self._run)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stop</span><span class="hljs-params">(self)</span>:</span>
+        self._running = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_run</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self._running: <span class="hljs-keyword">return</span>
+        <span class="hljs-keyword">try</span>:
+            self.callback()
+        <span class="hljs-keyword">except</span> (KeyboardInterrupt, SystemExit):
+            <span class="hljs-keyword">raise</span>
+        <span class="hljs-keyword">except</span>:
+            logging.error(<span class="hljs-string">&quot;Error in periodic callback&quot;</span>, exc_info=<span class="hljs-keyword">True</span>)
+        <span class="hljs-keyword">if</span> self._running:
+            self.start()
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">_EPoll</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;An epoll-based event loop using our C module for Python 2.5 systems&quot;&quot;&quot;</span>
+    _EPOLL_CTL_ADD = <span class="hljs-number">1</span>
+    _EPOLL_CTL_DEL = <span class="hljs-number">2</span>
+    _EPOLL_CTL_MOD = <span class="hljs-number">3</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self._epoll_fd = epoll.epoll_create()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fileno</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self._epoll_fd
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">register</span><span class="hljs-params">(self, fd, events)</span>:</span>
+        epoll.epoll_ctl(self._epoll_fd, self._EPOLL_CTL_ADD, fd, events)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">modify</span><span class="hljs-params">(self, fd, events)</span>:</span>
+        epoll.epoll_ctl(self._epoll_fd, self._EPOLL_CTL_MOD, fd, events)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unregister</span><span class="hljs-params">(self, fd)</span>:</span>
+        epoll.epoll_ctl(self._epoll_fd, self._EPOLL_CTL_DEL, fd, <span class="hljs-number">0</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">poll</span><span class="hljs-params">(self, timeout)</span>:</span>
+        <span class="hljs-keyword">return</span> epoll.epoll_wait(self._epoll_fd, int(timeout * <span class="hljs-number">1000</span>))
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">_KQueue</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;A kqueue-based event loop for BSD/Mac systems.&quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self._kqueue = select.kqueue()
+        self._active = {}
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fileno</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self._kqueue.fileno()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">register</span><span class="hljs-params">(self, fd, events)</span>:</span>
+        self._control(fd, events, select.KQ_EV_ADD)
+        self._active[fd] = events
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">modify</span><span class="hljs-params">(self, fd, events)</span>:</span>
+        self.unregister(fd)
+        self.register(fd, events)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unregister</span><span class="hljs-params">(self, fd)</span>:</span>
+        events = self._active.pop(fd)
+        self._control(fd, events, select.KQ_EV_DELETE)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_control</span><span class="hljs-params">(self, fd, events, flags)</span>:</span>
+        kevents = []
+        <span class="hljs-keyword">if</span> events &amp; IOLoop.WRITE:
+            kevents.append(select.kevent(
+                    fd, filter=select.KQ_FILTER_WRITE, flags=flags))
+        <span class="hljs-keyword">if</span> events &amp; IOLoop.READ <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> kevents:
+            <span class="hljs-comment"># Always read when there is not a write</span>
+            kevents.append(select.kevent(
+                    fd, filter=select.KQ_FILTER_READ, flags=flags))
+        <span class="hljs-comment"># Even though control() takes a list, it seems to return EINVAL</span>
+        <span class="hljs-comment"># on Mac OS X (10.6) when there is more than one event in the list.</span>
+        <span class="hljs-keyword">for</span> kevent <span class="hljs-keyword">in</span> kevents:
+            self._kqueue.control([kevent], <span class="hljs-number">0</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">poll</span><span class="hljs-params">(self, timeout)</span>:</span>
+        kevents = self._kqueue.control(<span class="hljs-keyword">None</span>, <span class="hljs-number">1000</span>, timeout)
+        events = {}
+        <span class="hljs-keyword">for</span> kevent <span class="hljs-keyword">in</span> kevents:
+            fd = kevent.ident
+            flags = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">if</span> kevent.filter == select.KQ_FILTER_READ:
+                events[fd] = events.get(fd, <span class="hljs-number">0</span>) | IOLoop.READ
+            <span class="hljs-keyword">if</span> kevent.filter == select.KQ_FILTER_WRITE:
+                events[fd] = events.get(fd, <span class="hljs-number">0</span>) | IOLoop.WRITE
+            <span class="hljs-keyword">if</span> kevent.flags &amp; select.KQ_EV_ERROR:
+                events[fd] = events.get(fd, <span class="hljs-number">0</span>) | IOLoop.ERROR
+        <span class="hljs-keyword">return</span> events.items()
+</code></pre>
+<h2 id="select">_Select</h2>
+<p>&#x5C06; select &#x5305;&#x88C5;&#xFF0C;&#x63D0;&#x4F9B; poll &#x63A5;&#x53E3;</p>
+<pre><code class="lang-python">
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">_Select</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;A simple, select()-based IOLoop implementation for non-Linux systems&quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.read_fds = set()
+        self.write_fds = set()
+        self.error_fds = set()
+        self.fd_sets = (self.read_fds, self.write_fds, self.error_fds)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">register</span><span class="hljs-params">(self, fd, events)</span>:</span>
+        <span class="hljs-keyword">if</span> events &amp; IOLoop.READ: self.read_fds.add(fd)
+        <span class="hljs-keyword">if</span> events &amp; IOLoop.WRITE: self.write_fds.add(fd)
+        <span class="hljs-keyword">if</span> events &amp; IOLoop.ERROR:
+            self.error_fds.add(fd)
+            <span class="hljs-comment"># Closed connections are reported as errors by epoll and kqueue,</span>
+            <span class="hljs-comment"># but as zero-byte reads by select, so when errors are requested</span>
+            <span class="hljs-comment"># we need to listen for both read and error.</span>
+            self.read_fds.add(fd)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">modify</span><span class="hljs-params">(self, fd, events)</span>:</span>
+        self.unregister(fd)
+        self.register(fd, events)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unregister</span><span class="hljs-params">(self, fd)</span>:</span>
+        self.read_fds.discard(fd)
+        self.write_fds.discard(fd)
+        self.error_fds.discard(fd)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">poll</span><span class="hljs-params">(self, timeout)</span>:</span>
+        readable, writeable, errors = select.select(
+            self.read_fds, self.write_fds, self.error_fds, timeout)
+        events = {}
+        <span class="hljs-keyword">for</span> fd <span class="hljs-keyword">in</span> readable:
+            events[fd] = events.get(fd, <span class="hljs-number">0</span>) | IOLoop.READ
+        <span class="hljs-keyword">for</span> fd <span class="hljs-keyword">in</span> writeable:
+            events[fd] = events.get(fd, <span class="hljs-number">0</span>) | IOLoop.WRITE
+        <span class="hljs-keyword">for</span> fd <span class="hljs-keyword">in</span> errors:
+            events[fd] = events.get(fd, <span class="hljs-number">0</span>) | IOLoop.ERROR
+        <span class="hljs-keyword">return</span> events.items()
+</code></pre>
+<h2 id="poll">_poll</h2>
+<p>&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684; poll &#x5B9E;&#x73B0;<br>&#x4F18;&#x5148;&#x7EA7; epoll &gt; kqueue &gt; select</p>
+<pre><code class="lang-python"><span class="hljs-comment"># Choose a poll implementation. Use epoll if it is available, fall back to</span>
+<span class="hljs-comment"># select() for non-Linux platforms</span>
+<span class="hljs-keyword">if</span> hasattr(select, <span class="hljs-string">&quot;epoll&quot;</span>):
+    <span class="hljs-comment"># Python 2.6+ on Linux</span>
+    _poll = select.epoll
+<span class="hljs-keyword">elif</span> hasattr(select, <span class="hljs-string">&quot;kqueue&quot;</span>):
+    <span class="hljs-comment"># Python 2.6+ on BSD or Mac</span>
+    _poll = _KQueue
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-comment"># Linux systems with our C module installed</span>
+        <span class="hljs-keyword">import</span> epoll
+        _poll = _EPoll
+    <span class="hljs-keyword">except</span>:
+        <span class="hljs-comment"># All other systems</span>
+        <span class="hljs-keyword">import</span> sys
+        <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;linux&quot;</span> <span class="hljs-keyword">in</span> sys.platform:
+            logging.warning(<span class="hljs-string">&quot;epoll module not found; using select()&quot;</span>)
+        _poll = _Select
+</code></pre>
+<h2 id="signal">signal</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> signal
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">catcher</span><span class="hljs-params">(signum, _)</span>:</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&quot;beat!&quot;</span>
+
+signal.signal(signal.SIGALRM, catcher)
+signal.setitimer(signal.ITIMER_REAL, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>)
+
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    time.sleep(<span class="hljs-number">5</span>)
+
+<span class="hljs-comment"># delivers a &quot;beat!&quot; message every 2 seconds.</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="stack_context.1.html" class="navigation navigation-prev " aria-label="Previous page: stack_context_1.py">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="web.html" class="navigation navigation-next " aria-label="Next page: web.py">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ioloop.py","level":"1.1.7.2","depth":3,"next":{"title":"web.py","level":"1.1.7.3","depth":3,"path":"tornado/web.md","ref":"tornado/web.md","articles":[]},"previous":{"title":"stack_context_1.py","level":"1.1.7.1","depth":3,"path":"tornado/stack_context.1.md","ref":"tornado/stack_context.1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tornado/ioloop.md","mtime":"2018-12-20T06:29:24.490Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-21T06:41:17.291Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1144 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>socketserver · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../asyncore/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../misc/">
+            
+                <a href="../misc/">
+            
+                    
+                    misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../misc/fork.html">
+            
+                <a href="../misc/fork.html">
+            
+                    
+                    fork
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    socketserver
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.1.2.1" data-path="socketserver.html">
+            
+                <a href="socketserver.html">
+            
+                    
+                    socketserver
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../asyncore/">
+            
+                <a href="../asyncore/">
+            
+                    
+                    asyncore
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.3.1" data-path="../asyncore/timer.html">
+            
+                <a href="../asyncore/timer.html">
+            
+                    
+                    example-timer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.2" data-path="../asyncore/echo.html">
+            
+                <a href="../asyncore/echo.html">
+            
+                    
+                    example-echo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.3" data-path="../asyncore/asyncore.html">
+            
+                <a href="../asyncore/asyncore.html">
+            
+                    
+                    source
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../itertools/">
+            
+                <a href="../itertools/">
+            
+                    
+                    itertools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="../fn.py/">
+            
+                <a href="../fn.py/">
+            
+                    
+                    fn.py
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.5.1" data-path="../fn.py/op.html">
+            
+                <a href="../fn.py/op.html">
+            
+                    
+                    op
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.2" data-path="../fn.py/func.html">
+            
+                <a href="../fn.py/func.html">
+            
+                    
+                    func
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.3" data-path="../fn.py/stream.html">
+            
+                <a href="../fn.py/stream.html">
+            
+                    
+                    stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="../tablib/">
+            
+                <a href="../tablib/">
+            
+                    
+                    tablib
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="../tornado/">
+            
+                <a href="../tornado/">
+            
+                    
+                    tornado
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.7.1" data-path="../tornado/stack_context.1.html">
+            
+                <a href="../tornado/stack_context.1.html">
+            
+                    
+                    stack_context_1.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.2" data-path="../tornado/ioloop.html">
+            
+                <a href="../tornado/ioloop.html">
+            
+                    
+                    ioloop.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.3" data-path="../tornado/web.html">
+            
+                <a href="../tornado/web.html">
+            
+                    
+                    web.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.4" data-path="../tornado/httpserver.html">
+            
+                <a href="../tornado/httpserver.html">
+            
+                    
+                    httpserver.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.5" data-path="../tornado/iostream.html">
+            
+                <a href="../tornado/iostream.html">
+            
+                    
+                    iostream.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >socketserver</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="socketserverpy">SocketServer.py</h1>
+<blockquote>
+<p>Creating network servers.</p>
+</blockquote>
+<h2 id="contents">contents</h2>
+<ul>
+<li><a href="#socketserverpy">SocketServer.py</a><ul>
+<li><a href="#contents">contents</a></li>
+<li><a href="#file-head">file head</a></li>
+<li><a href="#baseserver">BaseServer</a><ul>
+<li><a href="#baseserverserveforever">BaseServer.serve_forever</a></li>
+<li><a href="#baseservershutdown">BaseServer.shutdown</a></li>
+<li><a href="#baseserverhandlerequest">BaseServer.handle_request</a></li>
+<li><a href="#baseserverhandlerequestnoblock">BaseServer._handle_request_noblock</a></li>
+<li><a href="#baseserver-overridden-functions">BaseServer Overridden functions</a></li>
+</ul>
+</li>
+<li><a href="#tcpserver">TCPServer</a></li>
+<li><a href="#udpserver">UDPServer</a></li>
+<li><a href="#forkingmixin">ForkingMixIn</a></li>
+<li><a href="#threadingmixin">ThreadingMixIn</a></li>
+<li><a href="#baserequesthandler">BaseRequestHandler</a></li>
+<li><a href="#streamrequesthandler">StreamRequestHandler</a></li>
+<li><a href="#datagramrequesthandler">DatagramRequestHandler</a></li>
+<li><a href="#%E7%89%88%E6%9D%83">&#x7248;&#x6743;</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="file-head">file head</h2>
+<pre><code class="lang-python">
+__version__ = <span class="hljs-string">&quot;0.4&quot;</span>
+
+
+<span class="hljs-keyword">import</span> socket
+<span class="hljs-keyword">import</span> select
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> errno
+<span class="hljs-keyword">try</span>:
+    <span class="hljs-keyword">import</span> threading
+<span class="hljs-keyword">except</span> ImportError:
+    <span class="hljs-keyword">import</span> dummy_threading <span class="hljs-keyword">as</span> threading
+
+__all__ = [<span class="hljs-string">&quot;TCPServer&quot;</span>,<span class="hljs-string">&quot;UDPServer&quot;</span>,<span class="hljs-string">&quot;ForkingUDPServer&quot;</span>,<span class="hljs-string">&quot;ForkingTCPServer&quot;</span>,
+           <span class="hljs-string">&quot;ThreadingUDPServer&quot;</span>,<span class="hljs-string">&quot;ThreadingTCPServer&quot;</span>,<span class="hljs-string">&quot;BaseRequestHandler&quot;</span>,
+           <span class="hljs-string">&quot;StreamRequestHandler&quot;</span>,<span class="hljs-string">&quot;DatagramRequestHandler&quot;</span>,
+           <span class="hljs-string">&quot;ThreadingMixIn&quot;</span>, <span class="hljs-string">&quot;ForkingMixIn&quot;</span>]
+<span class="hljs-keyword">if</span> hasattr(socket, <span class="hljs-string">&quot;AF_UNIX&quot;</span>):
+    __all__.extend([<span class="hljs-string">&quot;UnixStreamServer&quot;</span>,<span class="hljs-string">&quot;UnixDatagramServer&quot;</span>,
+                    <span class="hljs-string">&quot;ThreadingUnixStreamServer&quot;</span>,
+                    <span class="hljs-string">&quot;ThreadingUnixDatagramServer&quot;</span>])
+
+<span class="hljs-comment"># &#x51FA;&#x73B0; EINTR &#x5219;&#x91CD;&#x65B0;&#x8C03;&#x7528;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_eintr_retry</span><span class="hljs-params">(func, *args)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;restart a system call interrupted by EINTR&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">return</span> func(*args)
+        <span class="hljs-keyword">except</span> (OSError, select.error) <span class="hljs-keyword">as</span> e:
+            <span class="hljs-keyword">if</span> e.args[<span class="hljs-number">0</span>] != errno.EINTR:
+                <span class="hljs-keyword">raise</span>
+</code></pre>
+<h2 id="baseserver">BaseServer</h2>
+<p>RequestHandlerClass &#x6CE8;&#x518C; handle &#x51FD;&#x6570;&#x3002;<br>finish_request &#x4E2D;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x8C03;&#x7528;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684; handle &#x51FD;&#x6570;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BaseServer</span>:</span>
+    timeout = <span class="hljs-keyword">None</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, server_address, RequestHandlerClass)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Constructor.  May be extended, do not override.&quot;&quot;&quot;</span>
+        self.server_address = server_address
+        self.RequestHandlerClass = RequestHandlerClass
+        self.__is_shut_down = threading.Event()
+        self.__shutdown_request = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">server_activate</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Called by constructor to activate the server.
+
+        May be overridden.
+
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">pass</span>
+</code></pre>
+<h3 id="baseserverserveforever">BaseServer.serve_forever</h3>
+<p>&#x670D;&#x52A1;&#x5FAA;&#x73AF;</p>
+<ol>
+<li>&#x76D1;&#x542C;&#x7AEF;&#x53E3;</li>
+<li>&#x5904;&#x7406;&#x8BF7;&#x6C42;</li>
+</ol>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">serve_forever</span><span class="hljs-params">(self, poll_interval=<span class="hljs-number">0.5</span>)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Handle one request at a time until shutdown.
+
+        Polls for shutdown every poll_interval seconds. Ignores
+        self.timeout. If you need to do periodic tasks, do them in
+        another thread.
+        &quot;&quot;&quot;</span>
+        self.__is_shut_down.clear()
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> self.__shutdown_request:
+                <span class="hljs-comment"># &#x8C03;&#x7528; select &#x76D1;&#x89C6;&#x8BF7;&#x6C42;&#xFF0C;&#x5904;&#x7406; EINTR &#x5F02;&#x5E38;</span>
+                r, w, e = _eintr_retry(select.select, [self], [], [],
+                                       poll_interval)
+                <span class="hljs-comment"># &#x6709;&#x8BF7;&#x6C42;&#x8FDB;&#x6765;</span>
+                <span class="hljs-keyword">if</span> self <span class="hljs-keyword">in</span> r:
+                    self._handle_request_noblock()
+        <span class="hljs-keyword">finally</span>:
+            self.__shutdown_request = <span class="hljs-keyword">False</span>
+            self.__is_shut_down.set()
+</code></pre>
+<h3 id="baseservershutdown">BaseServer.shutdown</h3>
+<p>&#x505C;&#x6B62; serve_forever &#x5FAA;&#x73AF;.<br><code>__is_shut_down</code> &#x901A;&#x77E5;&#x5916;&#x90E8;&#xFF0C;&#x5FAA;&#x73AF;&#x5DF2;&#x7ECF;&#x9000;&#x51FA;<br>&#x6CE8;&#x610F; threading.Event() &#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x6B21;&#xFF0C;&#x907F;&#x514D;&#x4F7F;&#x7528; Event &#x8FDB;&#x884C;&#x9891;&#x7E41;&#x7684;&#x8BBE;&#x7F6E;/&#x6E05;&#x9664;&#x3002;
+&#x9700;&#x8981;&#x5728;&#x4E0E; serve_forever &#x4E0D;&#x540C;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#x8C03;&#x7528;.<br>&#x56E0;&#x4E3A;&#x8C03;&#x7528; shutdown &#x540E;&#x9700;&#x8981; wait &#x4FE1;&#x53F7;&#x91CF;&#xFF0C;&#x7A0B;&#x5E8F;&#x4F1A; block&#xFF0C;block &#x540E; serve_forever &#x65E0;&#x6CD5;&#x6267;&#x884C;<br>serve_forever &#x6536;&#x5230;&#x8BF7;&#x6C42;&#x540E;&#x624D;&#x80FD;&#x9000;&#x51FA;&#x8BBE;&#x7F6E;&#x4FE1;&#x53F7;&#x91CF;</p>
+<p><strong>&#x6CE8;&#x610F;</strong><br><code>self.__shutdown_request</code> &#x7684;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x5C5E;&#x4E8E;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#xFF0C;&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#x662F;&#x5B89;&#x5168;&#x7684;</p>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shutdown</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Stops the serve_forever loop.
+
+        Blocks until the loop has finished. This must be called while
+        serve_forever() is running in another thread, or it will
+        deadlock.
+        &quot;&quot;&quot;</span>
+        self.__shutdown_request = <span class="hljs-keyword">True</span>
+        self.__is_shut_down.wait()
+</code></pre>
+<h3 id="baseserverhandlerequest">BaseServer.handle_request</h3>
+<p>&#x548C; serve_forever &#x5E76;&#x5217;&#x7684;&#x51FD;&#x6570;
+&#x5982;&#x679C;&#x4E0D;&#x8C03;&#x7528; server_forever, &#x5728;&#x5916;&#x9762;&#x5FAA;&#x73AF;&#x8C03;&#x7528; handle_request</p>
+<pre><code class="lang-python">    <span class="hljs-comment"># The distinction between handling, getting, processing and</span>
+    <span class="hljs-comment"># finishing a request is fairly arbitrary.  Remember:</span>
+    <span class="hljs-comment">#</span>
+    <span class="hljs-comment"># - handle_request() is the top-level call.  It calls</span>
+    <span class="hljs-comment">#   select, get_request(), verify_request() and process_request()</span>
+    <span class="hljs-comment"># - get_request() is different for stream or datagram sockets</span>
+    <span class="hljs-comment"># - process_request() is the place that may fork a new process</span>
+    <span class="hljs-comment">#   or create a new thread to finish the request</span>
+    <span class="hljs-comment"># - finish_request() instantiates the request handler class;</span>
+    <span class="hljs-comment">#   this constructor will handle the request all by itself</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_request</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Handle one request, possibly blocking.
+
+        Respects self.timeout.
+        &quot;&quot;&quot;</span>
+        <span class="hljs-comment"># Support people who used socket.settimeout() to escape</span>
+        <span class="hljs-comment"># handle_request before self.timeout was available.</span>
+
+        <span class="hljs-comment"># &#x5982;&#x679C;&#x7528;&#x6237;&#x4F7F;&#x7528; socket.settimeout() &#x8BBE;&#x7F6E;&#x4E86;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x5219;&#x9009;&#x53D6;&#x4E00;&#x4E2A;&#x5C0F;&#x7684;</span>
+        timeout = self.socket.gettimeout()
+        <span class="hljs-keyword">if</span> timeout <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            timeout = self.timeout
+        <span class="hljs-keyword">elif</span> self.timeout <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            timeout = min(timeout, self.timeout)
+        <span class="hljs-comment"># select,&#x76D1;&#x542C;&#x8FDE;&#x63A5;&#xFF0C;&#x4F1A;&#x963B;&#x585E;&#x76F4;&#x5230;&#x8D85;&#x65F6;</span>
+        fd_sets = _eintr_retry(select.select, [self], [], [], timeout)
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> fd_sets[<span class="hljs-number">0</span>]:
+            self.handle_timeout()
+            <span class="hljs-keyword">return</span>
+        <span class="hljs-comment"># &#x5904;&#x7406;&#x8BF7;&#x6C42;</span>
+        self._handle_request_noblock()
+</code></pre>
+<h3 id="baseserverhandlerequestnoblock">BaseServer._handle_request_noblock</h3>
+<p>&#x771F;&#x6B63;&#x7684;&#x8BF7;&#x6C42;&#x5904;&#x7406;&#x51FD;&#x6570;</p>
+<ol>
+<li>get_request: &#x63A5;&#x6536;&#x8BF7;&#x6C42; accept</li>
+<li>verify_request: &#x9A8C;&#x8BC1;&#xFF0C;&#x505A;&#x4E00;&#x4E9B;&#x9A8C;&#x8BC1;&#x5DE5;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982; ip &#x8FC7;&#x6EE4;</li>
+<li>process_request: &#x5904;&#x7406;&#x8BF7;&#x6C42;&#xFF0C;&#x5B50;&#x7C7B;&#x91CD;&#x5199;&#x8BE5;&#x65B9;&#x6CD5;&#x540E;&#xFF0C;&#x9700;&#x8981; &#x8C03;&#x7528; SocketServer.BaseServer.process_request,</li>
+<li>BaseServer.process<em>request &#x4E2D;&#x6709; BaseRequestHandler &#x7684;&#x56DE;&#x8C03;&#x52A8;&#x4F5C;,&#x5B9E;&#x4F8B;&#x5316;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684; handler, `<em>_init</em></em><code>&#x4E2D;&#x5B8C;&#x6210;&#x5BF9;</code>handle()` &#x7684;&#x8C03;&#x7528;</li>
+<li>shutdown_reques: &#x5173;&#x95ED;&#x8FDE;&#x63A5;</li>
+</ol>
+<pre><code class="lang-python">
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_handle_request_noblock</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Handle one request, without blocking.
+
+        I assume that select.select has returned that the socket is
+        readable before this function was called, so there should be
+        no risk of blocking in get_request().
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-comment"># &#x63A5;&#x6536;&#x8BF7;&#x6C42;</span>
+            <span class="hljs-comment"># get_request &#x7531;&#x5B50;&#x7C7B;&#x5B9E;&#x73B0;&#xFF0C;&#x4E00;&#x822C;&#x4E3A;&#x63A5;&#x6536;&#x8BF7;&#x6C42;&#xFF0C;&#x8FD4;&#x56DE; socket</span>
+            request, client_address = self.get_request()
+        <span class="hljs-keyword">except</span> socket.error:
+            <span class="hljs-keyword">return</span>
+        <span class="hljs-keyword">if</span> self.verify_request(request, client_address):
+            <span class="hljs-keyword">try</span>:
+                self.process_request(request, client_address)
+            <span class="hljs-keyword">except</span>:
+                self.handle_error(request, client_address)
+                self.shutdown_request(request)
+        <span class="hljs-keyword">else</span>:
+            self.shutdown_request(request)
+</code></pre>
+<h3 id="baseserver-overridden-functions">BaseServer Overridden functions</h3>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_timeout</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Called if no new request arrives within self.timeout.
+
+        Overridden by ForkingMixIn.
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">verify_request</span><span class="hljs-params">(self, request, client_address)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Verify the request.  May be overridden.
+
+        Return True if we should proceed with this request.
+
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_request</span><span class="hljs-params">(self, request, client_address)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Call finish_request.
+
+        Overridden by ForkingMixIn and ThreadingMixIn.
+
+        &quot;&quot;&quot;</span>
+        self.finish_request(request, client_address)
+        self.shutdown_request(request)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">server_close</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Called to clean-up the server.
+
+        May be overridden.
+
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">finish_request</span><span class="hljs-params">(self, request, client_address)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Finish one request by instantiating RequestHandlerClass.&quot;&quot;&quot;</span>
+        self.RequestHandlerClass(request, client_address, self)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shutdown_request</span><span class="hljs-params">(self, request)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Called to shutdown and close an individual request.&quot;&quot;&quot;</span>
+        self.close_request(request)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">close_request</span><span class="hljs-params">(self, request)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Called to clean up an individual request.&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_error</span><span class="hljs-params">(self, request, client_address)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Handle an error gracefully.  May be overridden.
+
+        The default is to print a traceback and continue.
+
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;-&apos;</span>*<span class="hljs-number">40</span>
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Exception happened during processing of request from&apos;</span>,
+        <span class="hljs-keyword">print</span> client_address
+        <span class="hljs-keyword">import</span> traceback
+        traceback.print_exc() <span class="hljs-comment"># XXX But this goes to stderr!</span>
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;-&apos;</span>*<span class="hljs-number">40</span>
+</code></pre>
+<h2 id="tcpserver">TCPServer</h2>
+<p>shutdown_request &#x5148;&#x8C03;&#x7528; socket.shutdown &#x540E;&#x8C03;&#x7528; socket.close</p>
+<blockquote>
+<ul>
+<li>close()releases the resource associated with a connection but does not necessarily close the connection immediately. If you want to close the connection in a timely fashion, callshutdown() beforeclose().</li>
+<li>Shut down one or both halves of the connection. If how is SHUT_RD, further receives are disallowed. If how is SHUT_WR, further sends are disallowed. Ifhow is SHUT_RDWR, further sends and receives are disallowed. Depending on the platform, shutting down one half of the connection can also close the opposite half (e.g. on Mac OS X, shutdown(SHUT_WR) does not allow further reads on the other end of the connection).</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TCPServer</span><span class="hljs-params">(BaseServer)</span>:</span>
+
+    address_family = socket.AF_INET
+
+    socket_type = socket.SOCK_STREAM
+
+    request_queue_size = <span class="hljs-number">5</span>
+
+    allow_reuse_address = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, server_address, RequestHandlerClass, bind_and_activate=True)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Constructor.  May be extended, do not override.&quot;&quot;&quot;</span>
+        BaseServer.__init__(self, server_address, RequestHandlerClass)
+        self.socket = socket.socket(self.address_family,
+                                    self.socket_type)
+        <span class="hljs-keyword">if</span> bind_and_activate:
+            <span class="hljs-keyword">try</span>:
+                self.server_bind()
+                self.server_activate()
+            <span class="hljs-keyword">except</span>:
+                self.server_close()
+                <span class="hljs-keyword">raise</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">server_bind</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Called by constructor to bind the socket.
+
+        May be overridden.
+
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">if</span> self.allow_reuse_address:
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, <span class="hljs-number">1</span>)
+        self.socket.bind(self.server_address)
+        self.server_address = self.socket.getsockname()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">server_activate</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Called by constructor to activate the server.
+
+        May be overridden.
+
+        &quot;&quot;&quot;</span>
+        self.socket.listen(self.request_queue_size)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">server_close</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Called to clean-up the server.
+
+        May be overridden.
+
+        &quot;&quot;&quot;</span>
+        self.socket.close()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fileno</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Return socket file number.
+
+        Interface required by select().
+
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">return</span> self.socket.fileno()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_request</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Get the request and client address from the socket.
+
+        May be overridden.
+
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">return</span> self.socket.accept()
+
+    <span class="hljs-comment"># &#x8C03;&#x7528; shutdown &#x540E;&#x8C03;&#x7528; close&#xFF0C;&#x7ACB;&#x5373;&#x5173;&#x95ED;&#x5E76;&#x91CA;&#x653E;&#x8D44;&#x6E90;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shutdown_request</span><span class="hljs-params">(self, request)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Called to shutdown and close an individual request.&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-comment">#explicitly shutdown.  socket.close() merely releases</span>
+            <span class="hljs-comment">#the socket and waits for GC to perform the actual close.</span>
+            request.shutdown(socket.SHUT_WR)
+        <span class="hljs-keyword">except</span> socket.error:
+            <span class="hljs-keyword">pass</span> <span class="hljs-comment">#some platforms may raise ENOTCONN here</span>
+        self.close_request(request)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">close_request</span><span class="hljs-params">(self, request)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Called to clean up an individual request.&quot;&quot;&quot;</span>
+        request.close()
+</code></pre>
+<h2 id="udpserver">UDPServer</h2>
+<p>UDPServer get_request &#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A; (data, socket) &#x7684; tuple&#xFF0C;&#x800C; TCPServer &#x8FD4;&#x56DE;&#x7684;&#x662F; socket<br>handle &#x4E2D;&#x8981;&#x533A;&#x5206;&#x5904;&#x7406;
+<code>msg, sock = self.request</code><br>msg &#x5DF2;&#x7ECF;&#x83B7;&#x53D6;&#xFF0C;&#x65E0;&#x9700;&#x989D;&#x5916; recv</p>
+<blockquote>
+<p>&#x5BF9;&#x4E8E;&#x6570;&#x636E;&#x7684;&#x4F20;&#x9001;&#xFF0C; &#x4F60;&#x5E94;&#x8BE5;&#x4F7F;&#x7528; socket &#x7684; sendto() &#x548C; recvfrom() &#x65B9;&#x6CD5;&#x3002; &#x5C3D;&#x7BA1;&#x4F20;&#x7EDF;&#x7684; send() &#x548C; recv() &#x4E5F;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;&#x540C;&#x6837;&#x7684;&#x6548;&#x679C;&#xFF0C; &#x4F46;&#x662F;&#x524D;&#x9762;&#x7684;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x5BF9;&#x4E8E; UDP &#x8FDE;&#x63A5;&#x800C;&#x8A00;&#x66F4;&#x666E;&#x904D;&#x3002;<br>from python3-cookbook</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> SocketServer <span class="hljs-keyword">import</span> BaseRequestHandler, UDPServer
+<span class="hljs-keyword">import</span> time
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeHandler</span><span class="hljs-params">(BaseRequestHandler)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;Got connection from&apos;</span>, self.client_address)
+        <span class="hljs-comment"># Get message and client socket</span>
+        msg, sock = self.request
+        resp = time.ctime()
+        sock.sendto(resp.encode(<span class="hljs-string">&apos;ascii&apos;</span>), self.client_address)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    serv = UDPServer((<span class="hljs-string">&apos;&apos;</span>, <span class="hljs-number">20000</span>), TimeHandler)
+    serv.serve_forever()
+
+<span class="hljs-comment">#-----------------------------</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> socket, AF_INET, SOCK_DGRAM
+<span class="hljs-meta">&gt;&gt;&gt; </span>s = socket(AF_INET, SOCK_DGRAM)
+<span class="hljs-meta">&gt;&gt;&gt; </span>s.sendto(<span class="hljs-string">b&apos;&apos;</span>, (<span class="hljs-string">&apos;localhost&apos;</span>, <span class="hljs-number">20000</span>))
+<span class="hljs-number">0</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>s.recvfrom(<span class="hljs-number">8192</span>)
+(<span class="hljs-string">&apos;Thu Dec 20 10:01:01 2018&apos;</span>, (<span class="hljs-string">&apos;127.0.0.1&apos;</span>, <span class="hljs-number">20000</span>))
+</code></pre>
+<pre><code class="lang-python">
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UDPServer</span><span class="hljs-params">(TCPServer)</span>:</span>
+
+    <span class="hljs-string">&quot;&quot;&quot;UDP server class.&quot;&quot;&quot;</span>
+
+    allow_reuse_address = <span class="hljs-keyword">False</span>
+
+    socket_type = socket.SOCK_DGRAM
+
+    max_packet_size = <span class="hljs-number">8192</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_request</span><span class="hljs-params">(self)</span>:</span>
+        data, client_addr = self.socket.recvfrom(self.max_packet_size)
+        <span class="hljs-keyword">return</span> (data, self.socket), client_addr
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">server_activate</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment"># No need to call listen() for UDP.</span>
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shutdown_request</span><span class="hljs-params">(self, request)</span>:</span>
+        <span class="hljs-comment"># No need to shutdown anything.</span>
+        self.close_request(request)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">close_request</span><span class="hljs-params">(self, request)</span>:</span>
+        <span class="hljs-comment"># No need to close anything.</span>
+        <span class="hljs-keyword">pass</span>
+</code></pre>
+<h2 id="forkingmixin">ForkingMixIn</h2>
+<p>&#x5178;&#x578B;&#x7684; fork &#x4F7F;&#x7528;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x80FD;&#x770B;&#x5230; fork &#x591A;&#x8FDB;&#x7A0B;&#x7684;&#x5178;&#x578B;&#x4F7F;&#x7528;</p>
+<ul>
+<li>&#x9650;&#x5B9A;&#x6700;&#x5927;&#x8FDB;&#x7A0B;&#x6570;&#xFF0C;&#x4FDD;&#x8BC1;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#x4E0D;&#x81F3;&#x4E8E;&#x8017;&#x5C3D;</li>
+<li>&#x7236;&#x8FDB;&#x7A0B; wait defunct &#x8FDB;&#x7A0B;</li>
+<li>fork &#x540E;&#x7236;&#x8FDB;&#x7A0B;&#x8FD4;&#x56DE;</li>
+<li>&#x5B50;&#x8FDB;&#x7A0B;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x540E; <code>_exit()</code></li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ForkingMixIn</span>:</span>
+
+    <span class="hljs-string">&quot;&quot;&quot;Mix-in class to handle each request in a new process.&quot;&quot;&quot;</span>
+
+    timeout = <span class="hljs-number">300</span>
+    active_children = <span class="hljs-keyword">None</span>
+    max_children = <span class="hljs-number">40</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">collect_children</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Internal routine to wait for children that have exited.&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">if</span> self.active_children <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            <span class="hljs-keyword">return</span>
+
+        <span class="hljs-keyword">while</span> len(self.active_children) &gt;= self.max_children:
+            <span class="hljs-keyword">try</span>:
+                pid, _ = os.waitpid(<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>)
+                self.active_children.discard(pid)
+            <span class="hljs-keyword">except</span> OSError <span class="hljs-keyword">as</span> e:
+                <span class="hljs-keyword">if</span> e.errno == errno.ECHILD:
+                    <span class="hljs-comment"># we don&apos;t have any children, we&apos;re done</span>
+                    self.active_children.clear()
+                <span class="hljs-keyword">elif</span> e.errno != errno.EINTR:
+                    <span class="hljs-keyword">break</span>
+
+        <span class="hljs-comment"># Now reap all defunct children.</span>
+        <span class="hljs-keyword">for</span> pid <span class="hljs-keyword">in</span> self.active_children.copy():
+            <span class="hljs-keyword">try</span>:
+                pid, _ = os.waitpid(pid, os.WNOHANG)
+                <span class="hljs-comment"># if the child hasn&apos;t exited yet, pid will be 0 and ignored by</span>
+                <span class="hljs-comment"># discard() below</span>
+                self.active_children.discard(pid)
+            <span class="hljs-keyword">except</span> OSError <span class="hljs-keyword">as</span> e:
+                <span class="hljs-keyword">if</span> e.errno == errno.ECHILD:
+                    <span class="hljs-comment"># someone else reaped it</span>
+                    self.active_children.discard(pid)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_timeout</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Wait for zombies after self.timeout seconds of inactivity.
+
+        May be extended, do not override.
+        &quot;&quot;&quot;</span>
+        self.collect_children()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_request</span><span class="hljs-params">(self, request, client_address)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Fork a new subprocess to process the request.&quot;&quot;&quot;</span>
+        self.collect_children()
+        pid = os.fork()
+        <span class="hljs-keyword">if</span> pid:
+            <span class="hljs-comment"># Parent process</span>
+            <span class="hljs-keyword">if</span> self.active_children <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+                self.active_children = set()
+            self.active_children.add(pid)
+            self.close_request(request) <span class="hljs-comment">#close handle in parent process</span>
+            <span class="hljs-keyword">return</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-comment"># Child process.</span>
+            <span class="hljs-comment"># This must never return, hence os._exit()!</span>
+            <span class="hljs-keyword">try</span>:
+                self.finish_request(request, client_address)
+                self.shutdown_request(request)
+                os._exit(<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">except</span>:
+                <span class="hljs-keyword">try</span>:
+                    self.handle_error(request, client_address)
+                    self.shutdown_request(request)
+                <span class="hljs-keyword">finally</span>:
+                    os._exit(<span class="hljs-number">1</span>)
+</code></pre>
+<h2 id="threadingmixin">ThreadingMixIn</h2>
+<p>ThreadingMixIn &#x91CD;&#x8F7D;&#x4E86; process_request &#x51FD;&#x6570;</p>
+<ol>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;</li>
+<li>&#x5728;&#x7EBF;&#x7A0B;&#x4E2D;&#x5904;&#x7406;&#x8BF7;&#x6C42;</li>
+<li>&#x542F;&#x52A8;&#x7EBF;&#x7A0B;</li>
+</ol>
+<pre><code class="lang-python">
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadingMixIn</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Mix-in class to handle each request in a new thread.&quot;&quot;&quot;</span>
+
+    <span class="hljs-comment"># Decides how threads will act upon termination of the</span>
+    <span class="hljs-comment"># main process</span>
+    daemon_threads = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_request_thread</span><span class="hljs-params">(self, request, client_address)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Same as in BaseServer but as a thread.
+
+        In addition, exception handling is done here.
+
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">try</span>:
+            self.finish_request(request, client_address)
+            self.shutdown_request(request)
+        <span class="hljs-keyword">except</span>:
+            self.handle_error(request, client_address)
+            self.shutdown_request(request)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_request</span><span class="hljs-params">(self, request, client_address)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Start a new thread to process the request.&quot;&quot;&quot;</span>
+        t = threading.Thread(target = self.process_request_thread,
+                             args = (request, client_address))
+        t.daemon = self.daemon_threads
+        t.start()
+</code></pre>
+<pre><code class="lang-python">
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ForkingUDPServer</span><span class="hljs-params">(ForkingMixIn, UDPServer)</span>:</span> <span class="hljs-keyword">pass</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ForkingTCPServer</span><span class="hljs-params">(ForkingMixIn, TCPServer)</span>:</span> <span class="hljs-keyword">pass</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadingUDPServer</span><span class="hljs-params">(ThreadingMixIn, UDPServer)</span>:</span> <span class="hljs-keyword">pass</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadingTCPServer</span><span class="hljs-params">(ThreadingMixIn, TCPServer)</span>:</span> <span class="hljs-keyword">pass</span>
+
+<span class="hljs-keyword">if</span> hasattr(socket, <span class="hljs-string">&apos;AF_UNIX&apos;</span>):
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UnixStreamServer</span><span class="hljs-params">(TCPServer)</span>:</span>
+        address_family = socket.AF_UNIX
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UnixDatagramServer</span><span class="hljs-params">(UDPServer)</span>:</span>
+        address_family = socket.AF_UNIX
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadingUnixStreamServer</span><span class="hljs-params">(ThreadingMixIn, UnixStreamServer)</span>:</span> <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadingUnixDatagramServer</span><span class="hljs-params">(ThreadingMixIn, UnixDatagramServer)</span>:</span> <span class="hljs-keyword">pass</span>
+</code></pre>
+<h2 id="baserequesthandler">BaseRequestHandler</h2>
+<p>&#x57FA;&#x7840;&#x8BF7;&#x6C42;&#x7C7B;&#xFF0C;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x4E09;&#x4E2A;&#x63A5;&#x53E3;</p>
+<ol>
+<li>setup()</li>
+<li>handle()</li>
+<li>finish()</li>
+</ol>
+<p>&#x4F7F;&#x7528;&#x65F6;&#x7EE7;&#x627F;&#x8BE5;&#x7C7B;&#xFF0C;&#x901A;&#x8FC7; BaseServer &#x6CE8;&#x518C;<br>BaseServer.finish<em>request &#x4E2D;&#x5B9E;&#x4F8B;&#x5316; BaseRequestHandler &#x7C7B;&#xFF0C;&#x5728; \</em>_init__&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E2D;&#x5B8C;&#x6210;&#x7EE7;&#x627F;&#x7C7B;&#x91CD;&#x8F7D;&#x7684; handle() &#x63A5;&#x53E3;&#x7684;&#x8C03;&#x7528;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BaseRequestHandler</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, request, client_address, server)</span>:</span>
+        self.request = request
+        self.client_address = client_address
+        self.server = server
+        self.setup()
+        <span class="hljs-keyword">try</span>:
+            self.handle()
+        <span class="hljs-keyword">finally</span>:
+            self.finish()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setup</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">finish</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+</code></pre>
+<h2 id="streamrequesthandler">StreamRequestHandler</h2>
+<p>&#x63D0;&#x4F9B;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x63A5;&#x53E3;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StreamRequestHandler</span><span class="hljs-params">(BaseRequestHandler)</span>:</span>
+
+    <span class="hljs-string">&quot;&quot;&quot;Define self.rfile and self.wfile for stream sockets.&quot;&quot;&quot;</span>
+
+    <span class="hljs-comment"># Default buffer sizes for rfile, wfile.</span>
+    <span class="hljs-comment"># We default rfile to buffered because otherwise it could be</span>
+    <span class="hljs-comment"># really slow for large data (a getc() call per byte); we make</span>
+    <span class="hljs-comment"># wfile unbuffered because (a) often after a write() we want to</span>
+    <span class="hljs-comment"># read and we need to flush the line; (b) big writes to unbuffered</span>
+    <span class="hljs-comment"># files are typically optimized by stdio even when big reads</span>
+    <span class="hljs-comment"># aren&apos;t.</span>
+    rbufsize = <span class="hljs-number">-1</span>
+    wbufsize = <span class="hljs-number">0</span>
+
+    <span class="hljs-comment"># A timeout to apply to the request socket, if not None.</span>
+    timeout = <span class="hljs-keyword">None</span>
+
+    <span class="hljs-comment"># Disable nagle algorithm for this socket, if True.</span>
+    <span class="hljs-comment"># Use only when wbufsize != 0, to avoid small packets.</span>
+    disable_nagle_algorithm = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setup</span><span class="hljs-params">(self)</span>:</span>
+        self.connection = self.request
+        <span class="hljs-keyword">if</span> self.timeout <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            self.connection.settimeout(self.timeout)
+        <span class="hljs-keyword">if</span> self.disable_nagle_algorithm:
+            self.connection.setsockopt(socket.IPPROTO_TCP,
+                                       socket.TCP_NODELAY, <span class="hljs-keyword">True</span>)
+        self.rfile = self.connection.makefile(<span class="hljs-string">&apos;rb&apos;</span>, self.rbufsize)
+        self.wfile = self.connection.makefile(<span class="hljs-string">&apos;wb&apos;</span>, self.wbufsize)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">finish</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.wfile.closed:
+            <span class="hljs-keyword">try</span>:
+                self.wfile.flush()
+            <span class="hljs-keyword">except</span> socket.error:
+                <span class="hljs-comment"># A final socket error may have occurred here, such as</span>
+                <span class="hljs-comment"># the local error ECONNABORTED.</span>
+                <span class="hljs-keyword">pass</span>
+        self.wfile.close()
+        self.rfile.close()
+</code></pre>
+<h2 id="datagramrequesthandler">DatagramRequestHandler</h2>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DatagramRequestHandler</span><span class="hljs-params">(BaseRequestHandler)</span>:</span>
+
+    <span class="hljs-string">&quot;&quot;&quot;Define self.rfile and self.wfile for datagram sockets.&quot;&quot;&quot;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setup</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">from</span> cStringIO <span class="hljs-keyword">import</span> StringIO
+        <span class="hljs-keyword">except</span> ImportError:
+            <span class="hljs-keyword">from</span> StringIO <span class="hljs-keyword">import</span> StringIO
+        self.packet, self.socket = self.request
+        self.rfile = StringIO(self.packet)
+        self.wfile = StringIO()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">finish</span><span class="hljs-params">(self)</span>:</span>
+        self.socket.sendto(self.wfile.getvalue(), self.client_address)
+</code></pre>
+<h2 id="&#x7248;&#x6743;">&#x7248;&#x6743;</h2>
+<p>&#x4F5C;&#x8005;&#xFF1A;bigfish<br>&#x8BB8;&#x53EF;&#x534F;&#x8BAE;&#xFF1A;<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">&#x8BB8;&#x53EF;&#x534F;&#x8BAE; &#x77E5;&#x8BC6;&#x5171;&#x4EAB;&#x7F72;&#x540D;-&#x975E;&#x5546;&#x4E1A;&#x6027;&#x4F7F;&#x7528; 4.0 &#x56FD;&#x9645;&#x8BB8;&#x53EF;&#x534F;&#x8BAE;</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: socketserver">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../asyncore/" class="navigation navigation-next " aria-label="Next page: asyncore">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"socketserver","level":"1.1.2.1","depth":3,"next":{"title":"asyncore","level":"1.1.3","depth":2,"path":"asyncore/README.md","ref":"asyncore/README.md","articles":[{"title":"example-timer","level":"1.1.3.1","depth":3,"path":"asyncore/timer.md","ref":"asyncore/timer.md","articles":[]},{"title":"example-echo","level":"1.1.3.2","depth":3,"path":"asyncore/echo.md","ref":"asyncore/echo.md","articles":[]},{"title":"source","level":"1.1.3.3","depth":3,"path":"asyncore/asyncore.md","ref":"asyncore/asyncore.md","articles":[]}]},"previous":{"title":"socketserver","level":"1.1.2","depth":2,"path":"SocketServer/README.md","ref":"SocketServer/README.md","articles":[{"title":"socketserver","level":"1.1.2.1","depth":3,"path":"SocketServer/socketserver.md","ref":"SocketServer/socketserver.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"SocketServer/socketserver.md","mtime":"2018-12-21T02:24:52.010Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-21T06:41:17.291Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

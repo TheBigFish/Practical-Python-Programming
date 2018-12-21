@@ -1,0 +1,799 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>stack_context_1.py · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ioloop.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../misc/">
+            
+                <a href="../misc/">
+            
+                    
+                    misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../misc/fork.html">
+            
+                <a href="../misc/fork.html">
+            
+                    
+                    fork
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../SocketServer/">
+            
+                <a href="../SocketServer/">
+            
+                    
+                    socketserver
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.2.1" data-path="../SocketServer/socketserver.html">
+            
+                <a href="../SocketServer/socketserver.html">
+            
+                    
+                    socketserver
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../asyncore/">
+            
+                <a href="../asyncore/">
+            
+                    
+                    asyncore
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.3.1" data-path="../asyncore/timer.html">
+            
+                <a href="../asyncore/timer.html">
+            
+                    
+                    example-timer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.2" data-path="../asyncore/echo.html">
+            
+                <a href="../asyncore/echo.html">
+            
+                    
+                    example-echo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.3" data-path="../asyncore/asyncore.html">
+            
+                <a href="../asyncore/asyncore.html">
+            
+                    
+                    source
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../itertools/">
+            
+                <a href="../itertools/">
+            
+                    
+                    itertools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="../fn.py/">
+            
+                <a href="../fn.py/">
+            
+                    
+                    fn.py
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.5.1" data-path="../fn.py/op.html">
+            
+                <a href="../fn.py/op.html">
+            
+                    
+                    op
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.2" data-path="../fn.py/func.html">
+            
+                <a href="../fn.py/func.html">
+            
+                    
+                    func
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.3" data-path="../fn.py/stream.html">
+            
+                <a href="../fn.py/stream.html">
+            
+                    
+                    stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="../tablib/">
+            
+                <a href="../tablib/">
+            
+                    
+                    tablib
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    tornado
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.1.7.1" data-path="stack_context.1.html">
+            
+                <a href="stack_context.1.html">
+            
+                    
+                    stack_context_1.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.2" data-path="ioloop.html">
+            
+                <a href="ioloop.html">
+            
+                    
+                    ioloop.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.3" data-path="web.html">
+            
+                <a href="web.html">
+            
+                    
+                    web.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.4" data-path="httpserver.html">
+            
+                <a href="httpserver.html">
+            
+                    
+                    httpserver.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.5" data-path="iostream.html">
+            
+                <a href="iostream.html">
+            
+                    
+                    iostream.py
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >stack_context_1.py</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="tornado-&#x6E90;&#x7801;&#x4E4B;-stackcontext&#xFF08;&#x4E00;&#xFF09;">tornado &#x6E90;&#x7801;&#x4E4B; StackContext&#xFF08;&#x4E00;&#xFF09;</h1>
+<blockquote>
+<p>tornado &#x7684;&#x5F02;&#x6B65;&#x4E0A;&#x4E0B;&#x6587;&#x673A;&#x5236;&#x5206;&#x6790;</p>
+</blockquote>
+<h2 id="contents">contents</h2>
+<ul>
+<li><a href="#tornado-%E6%BA%90%E7%A0%81%E4%B9%8B-stackcontext%E4%B8%80">tornado &#x6E90;&#x7801;&#x4E4B; StackContext&#xFF08;&#x4E00;&#xFF09;</a><ul>
+<li><a href="#contents">contents</a></li>
+<li><a href="#myioloop">MyIOLoop</a></li>
+<li><a href="#%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7">&#x5F02;&#x6B65;&#x56DE;&#x8C03;&#x5F02;&#x5E38;&#x7684;&#x6355;&#x83B7;</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8-wrap">&#x4F7F;&#x7528; wrap</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8-contextlib">&#x4F7F;&#x7528; contextlib</a></li>
+<li><a href="#copyright">copyright</a></li>
+</ul>
+</li>
+</ul>
+<p>&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; MyIOLoop &#x7C7B;&#xFF0C;&#x6A21;&#x4EFF; tornado &#x7684; IOLoop&#xFF0C;&#x5B9E;&#x73B0;&#x5F02;&#x6B65;&#x56DE;&#x8C03;<br>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; MyStackContext &#x7C7B;&#xFF0C;&#x6A21;&#x4EFF; tornado &#x7684; StackContext&#xFF0C;&#x5B9E;&#x73B0;&#x4E0A;&#x4E0B;&#x6587;</p>
+<h2 id="myioloop">MyIOLoop</h2>
+<p>&#x6A21;&#x62DF; tornado IOLoop</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyIOLoop</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self._callbacks = []
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">instance</span><span class="hljs-params">(cls)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(cls, <span class="hljs-string">&quot;_instance&quot;</span>):
+            cls._instance = cls()
+        <span class="hljs-keyword">return</span> cls._instance
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_callback</span><span class="hljs-params">(self, call_back)</span>:</span>
+        self._callbacks.append(call_back)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span><span class="hljs-params">(self)</span>:</span>
+        callbacks = self._callbacks
+        self._callbacks = []
+        <span class="hljs-keyword">for</span> call_back <span class="hljs-keyword">in</span> callbacks:
+            call_back()
+</code></pre>
+<h2 id="&#x5F02;&#x6B65;&#x56DE;&#x8C03;&#x5F02;&#x5E38;&#x7684;&#x6355;&#x83B7;">&#x5F02;&#x6B65;&#x56DE;&#x8C03;&#x5F02;&#x5E38;&#x7684;&#x6355;&#x83B7;</h2>
+<p>&#x7531;&#x8F93;&#x51FA;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570; call_func &#x4E2D;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x5728; main &#x51FD;&#x6570;&#x4E2D;&#x65E0;&#x6CD5;&#x88AB;&#x6355;&#x83B7;<br>main &#x51FD;&#x6570;&#x53EA;&#x80FD;&#x6355;&#x83B7;&#x5F53;&#x65F6;&#x8FD0;&#x884C;&#x7684; async_task &#x4E2D;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;,async_task &#x53EA;&#x662F;&#x5411; MyIOLoop &#x6CE8;&#x518C;&#x4E86;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x5F53;&#x573A;&#x8C03;&#x7528;&#x56DE;&#x8C03;<br>call_func &#x51FD;&#x6570;&#x6700;&#x7EC8;&#x5728; MyIOLoop.start &#x4E2D;&#x8C03;&#x7528;&#xFF0C;&#x5176;&#x5F02;&#x5E38;&#x6CA1;&#x6709;&#x88AB;&#x6355;&#x83B7;</p>
+<pre><code class="lang-python">my_io_loop = MyIOLoop.instance()
+times = <span class="hljs-number">0</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">call_func</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;run call_func&apos;</span>
+    <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;except in call_func&apos;</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">async_task</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">global</span> times
+    times += <span class="hljs-number">1</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;run async task {}&apos;</span>.format(times)
+    my_io_loop.add_callback(call_back=call_func)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">try</span>:
+        async_task()
+    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;main exception {}&apos;</span>.format(e)
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;end&apos;</span>
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    main()
+    my_io_loop.start()
+
+<span class="hljs-comment"># run async task 1</span>
+<span class="hljs-comment"># Traceback (most recent call last):</span>
+<span class="hljs-comment"># run call_func</span>
+<span class="hljs-comment">#   File &quot;E:/learn/python/simple-python/stack_context_example.py&quot;, line 56, in &lt;module&gt;</span>
+<span class="hljs-comment">#     my_io_loop.start()</span>
+<span class="hljs-comment">#   File &quot;E:/learn/python/simple-python/stack_context_example.py&quot;, line 26, in start</span>
+<span class="hljs-comment">#     call_back()</span>
+<span class="hljs-comment">#   File &quot;E:/learn/python/simple-python/stack_context_example.py&quot;, line 36, in call_func</span>
+<span class="hljs-comment">#     raise ValueError(&apos;except in call_func&apos;)</span>
+<span class="hljs-comment"># ValueError: except in call_func</span>
+</code></pre>
+<h2 id="&#x4F7F;&#x7528;-wrap">&#x4F7F;&#x7528; wrap</h2>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; wrap &#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x628A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x548C;&#x5F02;&#x5E38;&#x6355;&#x6349;&#x5199;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x56DE;&#x8C03;&#x5B9E;&#x9645;&#x8C03;&#x7528;&#x7684;&#x662F;&#x5E26;&#x5F02;&#x5E38;&#x6355;&#x6349;&#x7684;&#x51FD;&#x6570; wrapper</p>
+<pre><code class="lang-python">my_io_loop = MyIOLoop.instance()
+times = <span class="hljs-number">0</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">call_func</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;run call_func&apos;</span>
+    <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;except in call_func&apos;</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-keyword">try</span>:
+        func()
+    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;wrapper exception {}&apos;</span>.format(e)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">async_task</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">global</span> times
+    times += <span class="hljs-number">1</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;run async task {}&apos;</span>.format(times)
+    my_io_loop.add_callback(call_back=functools.partial(wrapper, call_func))
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">try</span>:
+        async_task()
+    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;main exception {}&apos;</span>.format(e)
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;end&apos;</span>
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    main()
+    my_io_loop.start()
+
+<span class="hljs-comment"># run async task 1</span>
+<span class="hljs-comment"># run call_func</span>
+<span class="hljs-comment"># wrapper exception except in call_func</span>
+</code></pre>
+<p>&#x7531;&#x6B64;&#xFF0C;&#x53EF;&#x4EE5;&#x60F3;&#x5230;&#xFF0C;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;&#xFF0C;&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4FDD;&#x5B58;&#x8FD9;&#x4E2A;&#x6267;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x7B49;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6784;&#x9020;&#x51FA;&#x8FD9;&#x4E2A;&#x73AF;&#x5883;</p>
+<h2 id="&#x4F7F;&#x7528;-contextlib">&#x4F7F;&#x7528; contextlib</h2>
+<p>&#x4E0B;&#x9762;&#x6A21;&#x4EFF;&#x4E86; tornado &#x5F02;&#x6B65;&#x4E0A;&#x4E0B;&#x6587;&#x5B9E;&#x73B0;&#x673A;&#x5236;</p>
+<ol>
+<li>MyStackContext &#x4F7F;&#x7528; __enter__ __exit__ &#x652F;&#x6301;&#x4E0A;&#x4E0B;&#x6587;</li>
+<li>MyStackContext &#x6784;&#x9020;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x4E3A;&#x4E00;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x5BF9;&#x8C61;</li>
+<li>with MyStackContext(context)&#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x52A8;&#x4F5C;&#xFF1A;<br><strong>&#x5728; MyStackContext(context) &#x6784;&#x9020;&#x65F6;&#xFF0C;&#x628A; context &#x6CE8;&#x518C;&#x8FDB;&#x5168;&#x5C40;&#x5DE5;&#x5382; MyStackContext.context_factory</strong><ol>
+<li>&#x8FDB;&#x5165; MyStackContext &#x7684;__enter</li>
+<li>&#x6784;&#x9020;&#x4E00;&#x4E2A; context &#x5BF9;&#x8C61;</li>
+<li>&#x8C03;&#x7528; context &#x5BF9;&#x8C61;&#x7684; __enter&#xFF0C;&#x8FDB;&#x5165;&#x771F;&#x6B63; context &#x4E0A;&#x4E0B;&#x6587;</li>
+<li>&#x6267;&#x884C; context &#x4E0A;&#x4E0B;&#x6587;&#xFF0C;my_context yield &#x8BED;&#x53E5;&#x524D;&#x7684;&#x90E8;&#x5206;</li>
+<li>&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x5305;&#x88F9;&#x7684;&#x8BED;&#x53E5;&#xFF0C;async_task</li>
+<li>async_task &#x4E2D; add_callback&#xFF0C;&#x5B9E;&#x9645;&#x4FDD;&#x5B58;&#x7684; wrap, wrap &#x5C06;&#x6B64;&#x65F6;&#x7684;&#x5168;&#x5C40;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883; MyStackContext.context_factory &#x4FDD;&#x5B58;&#xFF0C;&#x4EE5;&#x65B9;&#x4FBF; call_back &#x8C03;&#x7528;</li>
+<li>&#x8C03;&#x7528; context &#x5BF9;&#x8C61;&#x7684; __exit,&#x9000;&#x51FA; context &#x4E0A;&#x4E0B;&#x6587;</li>
+<li>&#x8FDB;&#x5165; MyStackContext &#x7684;__exit</li>
+</ol>
+</li>
+<li>my_io_loop.start() &#x6267;&#x884C;, &#x8C03;&#x7528;&#x6CE8;&#x518C;&#x7684; _call_back</li>
+<li>&#x5B9E;&#x9645;&#x8C03;&#x7528; wrapped &#x51FD;&#x6570;<ol>
+<li>&#x83B7;&#x53D6;&#x4FDD;&#x5B58;&#x7684; context &#x73AF;&#x5883;</li>
+<li>with context</li>
+<li>&#x8C03;&#x7528;&#x771F;&#x6B63;&#x7684; callback</li>
+</ol>
+</li>
+</ol>
+<p>&#x8FD9;&#x6837;&#xFF0C;&#x5728; main &#x51FD;&#x6570;&#x4E2D;&#x6267;&#x884C;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">with</span> MyStackContext(my_context):
+    async_task()
+</code></pre>
+<p>&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587; my_context&#xFF0C;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x5C06;&#x5728;&#x8FD9;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x8C03;&#x7528;<br>&#x6548;&#x679C;&#x4E0A;&#x76F8;&#x5F53;&#x4E8E;&#x5728; my_context &#x8FD9;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;&#x4E2D;&#x8C03;&#x7528; async_task<br>&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_context</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;---enter my_context---&gt;&gt;&apos;</span>
+    <span class="hljs-keyword">try</span>:
+        async_task()
+    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;handler except: {}&apos;</span>.format(e)
+    <span class="hljs-keyword">finally</span>:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;&lt;&lt;---exit my_context ---&apos;</span>
+</code></pre>
+<pre><code class="lang-python">
+
+<span class="hljs-keyword">import</span> contextlib
+<span class="hljs-keyword">import</span> functools
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyIOLoop</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self._callbacks = []
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">instance</span><span class="hljs-params">(cls)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(cls, <span class="hljs-string">&quot;_instance&quot;</span>):
+            cls._instance = cls()
+        <span class="hljs-keyword">return</span> cls._instance
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_callback</span><span class="hljs-params">(self, call_back)</span>:</span>
+        self._callbacks.append(wrap(call_back))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span><span class="hljs-params">(self)</span>:</span>
+        callbacks = self._callbacks
+        self._callbacks = []
+        <span class="hljs-keyword">for</span> call_back <span class="hljs-keyword">in</span> callbacks:
+            self._call_back(call_back)
+
+<span class="hljs-meta">    @staticmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_call_back</span><span class="hljs-params">(func)</span>:</span>
+        func()
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyStackContext</span><span class="hljs-params">(object)</span>:</span>
+    context_factory = []
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, context)</span>:</span>
+        <span class="hljs-keyword">if</span> context:
+            MyStackContext.context_factory.append(context)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__enter__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            self.context = self.context_factory[<span class="hljs-number">0</span>]()
+            self.context.__enter__()
+        <span class="hljs-keyword">except</span> Exception:
+            <span class="hljs-keyword">raise</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__exit__</span><span class="hljs-params">(self, type, value, traceback)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">return</span> self.context.__exit__(type, value, traceback)
+        <span class="hljs-keyword">finally</span>:
+            <span class="hljs-keyword">pass</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrap</span><span class="hljs-params">(fn)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapped</span><span class="hljs-params">(callback, contexts, *args, **kwargs)</span>:</span>
+        context = contexts[<span class="hljs-number">0</span>]()
+        <span class="hljs-keyword">with</span> context:
+            callback(*args, **kwargs)
+
+    contexts = MyStackContext.context_factory
+    result = functools.partial(wrapped, fn, contexts)
+    <span class="hljs-keyword">return</span> result
+
+
+my_io_loop = MyIOLoop.instance()
+
+times = <span class="hljs-number">0</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">call_func</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;run call_func&apos;</span>
+    <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;except in call_func&apos;</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">async_task</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">global</span> times
+    times += <span class="hljs-number">1</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;run async task {}&apos;</span>.format(times)
+    my_io_loop.add_callback(call_back=call_func)
+
+
+<span class="hljs-meta">@contextlib.contextmanager</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_context</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;---enter my_context---&gt;&gt;&apos;</span>
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">yield</span>
+    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;handler except: {}&apos;</span>.format(e)
+    <span class="hljs-keyword">finally</span>:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;&lt;&lt;---exit my_context ---&apos;</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">with</span> MyStackContext(my_context):
+        async_task()
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;end main&apos;</span>
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    main()
+    my_io_loop.start()
+
+<span class="hljs-comment"># ---enter my_context---&gt;&gt;</span>
+<span class="hljs-comment"># run async task 1</span>
+<span class="hljs-comment"># &lt;&lt;---exit my_context ---</span>
+<span class="hljs-comment"># end main</span>
+<span class="hljs-comment"># ---enter my_context---&gt;&gt;</span>
+<span class="hljs-comment"># run call_func</span>
+<span class="hljs-comment"># handler except: except in call_func</span>
+<span class="hljs-comment"># &lt;&lt;---exit my_context ---</span>
+</code></pre>
+<h2 id="copyright">copyright</h2>
+<p>author&#xFF1A;bigfish<br>copyright: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">&#x8BB8;&#x53EF;&#x534F;&#x8BAE; &#x77E5;&#x8BC6;&#x5171;&#x4EAB;&#x7F72;&#x540D;-&#x975E;&#x5546;&#x4E1A;&#x6027;&#x4F7F;&#x7528; 4.0 &#x56FD;&#x9645;&#x8BB8;&#x53EF;&#x534F;&#x8BAE;</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: tornado">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ioloop.html" class="navigation navigation-next " aria-label="Next page: ioloop.py">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"stack_context_1.py","level":"1.1.7.1","depth":3,"next":{"title":"ioloop.py","level":"1.1.7.2","depth":3,"path":"tornado/ioloop.md","ref":"tornado/ioloop.md","articles":[]},"previous":{"title":"tornado","level":"1.1.7","depth":2,"path":"tornado/README.md","ref":"tornado/README.md","articles":[{"title":"stack_context_1.py","level":"1.1.7.1","depth":3,"path":"tornado/stack_context.1.md","ref":"tornado/stack_context.1.md","articles":[]},{"title":"ioloop.py","level":"1.1.7.2","depth":3,"path":"tornado/ioloop.md","ref":"tornado/ioloop.md","articles":[]},{"title":"web.py","level":"1.1.7.3","depth":3,"path":"tornado/web.md","ref":"tornado/web.md","articles":[]},{"title":"httpserver.py","level":"1.1.7.4","depth":3,"path":"tornado/httpserver.md","ref":"tornado/httpserver.md","articles":[]},{"title":"iostream.py","level":"1.1.7.5","depth":3,"path":"tornado/iostream.md","ref":"tornado/iostream.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tornado/stack_context.1.md","mtime":"2018-12-21T06:39:20.235Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-21T06:41:17.291Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
