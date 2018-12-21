@@ -1,12 +1,17 @@
 # SocketServer.py
 
+> Creating network servers.
+
+## contents
+
 - [SocketServer.py](#socketserverpy)
+  - [contents](#contents)
   - [file head](#file-head)
   - [BaseServer](#baseserver)
     - [BaseServer.serve_forever](#baseserverserveforever)
     - [BaseServer.shutdown](#baseservershutdown)
     - [BaseServer.handle_request](#baseserverhandlerequest)
-    - [`BaseServer._handle_request_noblock`](#baseserverhandlerequestnoblock)
+    - [BaseServer.\_handle_request_noblock](#baseserverhandlerequestnoblock)
     - [BaseServer Overridden functions](#baseserver-overridden-functions)
   - [TCPServer](#tcpserver)
   - [UDPServer](#udpserver)
@@ -15,6 +20,7 @@
   - [BaseRequestHandler](#baserequesthandler)
   - [StreamRequestHandler](#streamrequesthandler)
   - [DatagramRequestHandler](#datagramrequesthandler)
+  - [版权](#%E7%89%88%E6%9D%83)
 
 ## file head
 
@@ -171,7 +177,7 @@ serve_forever 收到请求后才能退出设置信号量
         self._handle_request_noblock()
 ```
 
-### `BaseServer._handle_request_noblock`
+### BaseServer.\_handle_request_noblock
 
 真正的请求处理函数
 
@@ -423,9 +429,9 @@ class UDPServer(TCPServer):
 
 ## ForkingMixIn
 
-典型的 fork 使用
+典型的 fork 使用，这里我们能看到 fork 多进程的典型使用
 
-- 限定最大进程数
+- 限定最大进程数，保证系统资源不至于耗尽
 - 父进程 wait defunct 进程
 - fork 后父进程返回
 - 子进程处理请求后 `_exit()`
@@ -502,6 +508,12 @@ class ForkingMixIn:
 
 ## ThreadingMixIn
 
+ThreadingMixIn 重载了 process_request 函数
+
+1. 创建一个线程
+2. 在线程中处理请求
+3. 启动线程
+
 ```python
 
 class ThreadingMixIn:
@@ -555,6 +567,15 @@ if hasattr(socket, 'AF_UNIX'):
 
 ## BaseRequestHandler
 
+基础请求类，对外提供三个接口
+
+1. setup()
+2. handle()
+3. finish()
+
+使用时继承该类，通过 BaseServer 注册  
+BaseServer.finish_request 中实例化 BaseRequestHandler 类，在 \_\_init\_\_函数调用中完成继承类重载的 handle() 接口的调用
+
 ```python
 class BaseRequestHandler:
 
@@ -579,6 +600,8 @@ class BaseRequestHandler:
 ```
 
 ## StreamRequestHandler
+
+提供文件操作接口
 
 ```python
 class StreamRequestHandler(BaseRequestHandler):
@@ -645,3 +668,8 @@ class DatagramRequestHandler(BaseRequestHandler):
         self.socket.sendto(self.wfile.getvalue(), self.client_address)
 
 ```
+
+## 版权
+
+作者：bigfish  
+许可协议：[许可协议 知识共享署名-非商业性使用 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc/4.0/)
