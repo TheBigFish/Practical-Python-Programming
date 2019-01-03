@@ -10,6 +10,7 @@
   - [异步回调异常的捕获](#%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7)
   - [使用 wrap](#%E4%BD%BF%E7%94%A8-wrap)
   - [使用 contextlib](#%E4%BD%BF%E7%94%A8-contextlib)
+  - [inspired by](#inspired-by)
   - [copyright](#copyright)
 
 我们实现一个简单的 MyIOLoop 类，模仿 tornado 的 IOLoop，实现异步回调  
@@ -291,6 +292,10 @@ if __name__ == '__main__':
 # handler except: except in call_func
 # <<---exit my_context ---
 ```
+
+## inspired by
+
+[Tornado 源码分析（二）异步上下文管理（StackContext）](https://www.jianshu.com/p/3e58f977b908)
 
 ## copyright
 

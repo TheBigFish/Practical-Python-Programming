@@ -219,6 +219,9 @@ read 事件产生(新请求进来)时调用
 
 ## HTTPConnection
 
+> Handles a connection to an HTTP client, executing HTTP requests.  
+> We parse HTTP headers and bodies, and execute the request callback until the HTTP conection is closed.
+
 1. 封装了一个 http 连接对象
 2. 在初始化函数中完成 http 头的接收和解析
 3. 完成 header 数据接收后，调用 `_on_headers` 函数
@@ -226,11 +229,8 @@ read 事件产生(新请求进来)时调用
 
 ```python
 class HTTPConnection(object):
-    """Handles a connection to an HTTP client, executing HTTP requests.
-
-    We parse HTTP headers and bodies, and execute the request callback
-    until the HTTP conection is closed.
-    """
+    # 设置 相关变量
+    # read_until 触发 socket 事件回调链
     def __init__(self, stream, address, request_callback, no_keep_alive=False,
                  xheaders=False):
         self.stream = stream
@@ -260,6 +260,9 @@ class HTTPConnection(object):
         if self._request_finished:
             self._finish_request()
 
+    # 检查是否 keep-alive
+    # 不是则关闭连接
+    # 是则触发下一个 http 头读取事件
     def _finish_request(self):
         if self.no_keep_alive:
             disconnect = True
@@ -282,6 +285,7 @@ class HTTPConnection(object):
     # 解析 http 头并构造 HTTPRequest
     def _on_headers(self, data):
         try:
+            # 解析请求行
             eol = data.find("\r\n")
             start_line = data[:eol]
             try:
@@ -290,11 +294,13 @@ class HTTPConnection(object):
                 raise _BadRequestException("Malformed HTTP request line")
             if not version.startswith("HTTP/"):
                 raise _BadRequestException("Malformed HTTP version in HTTP Request-Line")
+            # 解析请求头
             headers = httputil.HTTPHeaders.parse(data[eol:])
             self._request = HTTPRequest(
                 connection=self, method=method, uri=uri, version=version,
                 headers=headers, remote_ip=self.address[0])
 
+            # 有 body 则读取
             content_length = headers.get("Content-Length")
             if content_length:
                 content_length = int(content_length)
@@ -312,6 +318,12 @@ class HTTPConnection(object):
             self.stream.close()
             return
 
+    # POST PUT 方法检测表单域
+    # extend 方法不会改变 dictinary 原来对象的值
+    # 支持两种类型表单
+    # application/x-www-form-urlencoded
+    # multipart/form-data
+    # 数据存放于 self._request.arguments
     def _on_request_body(self, data):
         self._request.body = data
         content_type = self._request.headers.get("Content-Type", "")
@@ -334,6 +346,9 @@ class HTTPConnection(object):
                     logging.warning("Invalid multipart/form-data")
         self.request_callback(self._request)
 
+    # 解析 multipart/form-data 格式表单
+    # 目前只支持 Content-Disposition:form-data，不支持Content-Disposition:file
+    # 不支持嵌套
     def _parse_mime_body(self, boundary, data):
         # The standard allows for the boundary to be quoted in the header,
         # although it's rare (it happens at least for google app engine
@@ -381,6 +396,7 @@ class HTTPConnection(object):
 
 封装 http 请求  
 连接信息 HTTPConnection 保存在 connection 中
+write、finish 方法给上层调用
 
 ```python
 class HTTPRequest(object):
