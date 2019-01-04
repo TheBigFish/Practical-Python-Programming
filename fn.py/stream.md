@@ -31,6 +31,10 @@ assert list(fib[30:35]) == [832040,1346269,2178309,3524578,5702887]
 
 ### 源码
 
+Stream 实现了一个典型的可迭代类  
+\_StreamIterator 实现了一个迭代器，但是它自己没有实现 \_\_iter\_\_ 方法，所以它本身不能迭代  
+Stream 实现了 \_\_iter\_\_ 方法，为一个可迭代的类，其返回一个迭代器（\_StreamIterator 实例）
+
 ```python
 class Stream(object):
 
